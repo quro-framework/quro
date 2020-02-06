@@ -6,6 +6,9 @@
   "author": "hota1024",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "webpack"
+  },
   "devDependencies": {
     "@types/webpack": "^4.41.5",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
