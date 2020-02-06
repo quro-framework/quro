@@ -3,7 +3,7 @@
   "version": "1.0.8",
   "description": "A simple Discord.js framework.",
   "main": "lib/index.js",
-  "types": "lib/src",
+  "types": "types/src",
   "author": "hota1024",
   "license": "MIT",
   "private": false,
