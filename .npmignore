@@ -5,5 +5,5 @@
 /.eslintignore
 /.eslintrc
 /.prettierrc
-/jest.config.jest
+/jest.config.js
 /webpack.config.ts
