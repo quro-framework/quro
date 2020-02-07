@@ -10,7 +10,9 @@
   "scripts": {
     "build": "webpack",
     "production": "webpack --mode production",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
