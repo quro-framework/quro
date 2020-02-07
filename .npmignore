@@ -1,1 +1,9 @@
 /src
+/.nyc_output
+/coverage
+/tests
+/.eslintignore
+/.eslintrc
+/.prettierrc
+/jest.config.jest
+/webpack.config.ts
