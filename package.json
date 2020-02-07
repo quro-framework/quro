@@ -1,6 +1,6 @@
 {
   "name": "quro",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A simple Discord.js framework.",
   "main": "lib/index.js",
   "types": "types/src",
@@ -14,7 +14,8 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "nyc": "nyc npm test",
-    "codecov": "npm run nyc && nyc report --reporter=text-lcov && codecov"
+    "codecov": "npm run nyc && nyc report --reporter=text-lcov && codecov",
+    "publish-npm": "npm run production && yarn publish"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
