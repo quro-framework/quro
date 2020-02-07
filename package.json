@@ -11,6 +11,7 @@
     "build": "webpack"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.2",
     "@types/webpack": "^4.41.5",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
