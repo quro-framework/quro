@@ -1,0 +1,47 @@
+@startuml
+title Quro
+
+namespace CommandParsers {
+  enum NodeType {
+    StartCommandCall
+    EndCommandCall
+    StringValue
+    NumberValue
+    BooleanValue
+    PipeToken
+  }
+
+  interface CommandParseResultInterface {
+    + type: NodeType
+    + commandValue: string
+    + stringValue: string
+    + numberValue: number
+    + booleanValue: boolean
+  }
+  CommandParseResultInterface -> CommandParsers.NodeType
+
+  interface CommandParserInterface {
+    + parse(target: string): CommandParseResultInterface[]
+  }
+  CommandParserInterface -> CommandParsers.CommandParseResultInterface
+
+  class CommnadParseResult {
+    + type: NodeType
+    + commandValue: string
+    + stringValue: string
+    + numberValue: number
+    + booleanValue: boolean
+  }
+  CommandParsers -|> CommandParsers.CommandParserInterface
+  
+}
+
+namespace Requests {
+  interface RequestInterface {
+    + get<T>(key: string): T
+
+    + all<T = any[]>(): T
+  }
+}
+
+@enduml
