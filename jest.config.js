@@ -8,5 +8,6 @@ module.exports = {
       tsConfig: 'tsconfig.json'
     }
   },
-  testMatch: ['**/tests/**/*.test.ts']
+  testMatch: ['**/tests/**/*.test.ts'],
+  collectCoverage: true
 }
