@@ -7,3 +7,4 @@
 /.prettierrc
 /jest.config.js
 /webpack.config.ts
+/uml
