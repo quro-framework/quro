@@ -10,11 +10,7 @@
     "declarationDir": "types",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src",
