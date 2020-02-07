@@ -12,7 +12,8 @@
     "production": "webpack --mode production",
     "watch": "webpack --watch",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "nyc": "nyc npm test"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
