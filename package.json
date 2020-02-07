@@ -8,7 +8,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "production": "webpack --mode production",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
