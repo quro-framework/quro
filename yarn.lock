@@ -28,6 +28,11 @@
   resolved "https://registry.yarnpkg.com/@types/detect-indent/-/detect-indent-0.1.30.tgz#dc682bb412b4e65ba098e70edad73b4833fb910d"
   integrity sha1-3GgrtBK05lugmOcO2tc7SDP7kQ0=
 
+"@types/dts-bundle@^0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@types/dts-bundle/-/dts-bundle-0.0.31.tgz#e7ecfe38223ffc6468824e2364a066a7abc61faf"
+  integrity sha512-j/MaB8xKoDPWMh/G60unWEeVkM0g8I4J3vk2kcGcg/wM+E0BqPhciEnB8gAIfdDvASzo3i57KeSxKdv31lVmeQ==
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
