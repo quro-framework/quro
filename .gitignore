@@ -3,3 +3,4 @@ lib
 types
 *-error.log
 .nyc_output
+coverage
