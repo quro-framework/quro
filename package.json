@@ -13,7 +13,8 @@
     "watch": "webpack --watch",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "nyc": "nyc npm test"
+    "nyc": "nyc npm test",
+    "codecov": "npm run nyc && nyc report --reporter=text-lcov && codecov"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
