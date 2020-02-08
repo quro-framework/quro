@@ -19,6 +19,12 @@ export class ContentParser implements ContentParserInterface {
     ]
   }
 
+  /**
+   * Create token.
+   *
+   * @param type
+   * @param data
+   */
   private createToken(
     type: ContentParseTokenType,
     data?: Omit<ContentParseToken, 'type'>
