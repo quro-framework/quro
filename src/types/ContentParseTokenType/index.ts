@@ -4,5 +4,6 @@
 export enum ContentParseTokenType {
   CommandCallStart,
   CommandCallEnd,
-  StringArgument
+  StringArgument,
+  Unknown
 }
