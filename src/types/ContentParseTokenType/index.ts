@@ -7,5 +7,6 @@ export enum ContentParseTokenType {
   StringArgument,
   NumberArgument,
   BooleanArgument,
+  Pipeline,
   Unknown
 }
