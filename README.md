@@ -14,3 +14,7 @@ yarn add quro
 # or
 npm install quro
 ```
+
+## 🎨 Logo
+
+[hota1024/quro-art](https://github.com/hota1024/quro-art)
