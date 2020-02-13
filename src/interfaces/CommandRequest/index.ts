@@ -1,3 +1,5 @@
+import { RequestArgs } from '../../types/RequestArgs'
+
 /*
  * CommandRequest interface.
  */
@@ -7,5 +9,5 @@ export interface CommandRequestInterface {
    *
    * @param name
    */
-  get<T>(name: string): T
+  get<T extends RequestArgs['name']>(name: string): T
 }
