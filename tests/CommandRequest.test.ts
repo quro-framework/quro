@@ -1,5 +1,7 @@
+import { CommandRequest } from '../src'
+
 describe('CommandRequest test', () => {
-  test('Arguments', () => {
+  test('Get arguments', () => {
     const request = new CommandRequest({
       args: {
         text: 'Hello world',
@@ -8,7 +10,7 @@ describe('CommandRequest test', () => {
       }
     })
 
-    expect(request.get<string>('name')).toBe('Hello world')
+    expect(request.get<string>('text')).toBe('Hello world')
     expect(request.get<number>('number')).toBe(10)
     expect(request.get<boolean>('boolean')).toBe(true)
   })
