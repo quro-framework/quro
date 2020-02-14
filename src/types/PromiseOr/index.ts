@@ -1,4 +1,4 @@
 /*
- * Awaitable type.
+ * PromiseOr type.
  */
-export type Awaitable<T = void> = Promise<T> | T
+export type PromiseOr<T = void> = Promise<T> | T
