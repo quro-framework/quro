@@ -1,6 +1,4 @@
 /*
  * RequestArgs type.
  */
-export type RequestArgs = {
-  [name: string]: string | number | boolean
-}
+export type RequestArgs = (string | number | boolean)[]
