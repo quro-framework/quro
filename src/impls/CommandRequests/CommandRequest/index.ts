@@ -8,7 +8,7 @@ export class CommandRequest implements CommandRequestInterface {
   /**
    * Arguments.
    */
-  args: RequestArgs = {}
+  args: RequestArgs = []
 
   /**
    * Constructor.
@@ -16,15 +16,22 @@ export class CommandRequest implements CommandRequestInterface {
    * @param data
    */
   constructor(data: { args?: RequestArgs }) {
-    this.args = data.args || {}
+    this.args = data.args || []
   }
 
   /**
-   * Get argument by name.
+   * Get argument by index.
    *
-   * @param name
+   * @param index
    */
-  get<T extends RequestArgs['name']>(name: string): T {
-    return this.args[name] as T
+  get<T extends RequestArgs[0]>(index: number): T {
+    return this.args[index] as T
+  }
+
+  /**
+   * Get all arguments.
+   */
+  all<T extends RequestArgs>(): T {
+    return this.args as T
   }
 }
