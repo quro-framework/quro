@@ -5,9 +5,9 @@ import { RequestArgs } from '../../types/RequestArgs'
  */
 export interface CommandRequestInterface {
   /**
-   * Get argument by name.
+   * Get argument by index.
    *
-   * @param name
+   * @param index
    */
-  get<T extends RequestArgs['name']>(name: string): T
+  get<T extends RequestArgs[0]>(index: number): T
 }
