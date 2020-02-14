@@ -12,7 +12,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "types": [
-      "discord.js"
+      "discord.js",
+      "@types/jest"
     ]
   },
   "include": [
