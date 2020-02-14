@@ -10,7 +10,10 @@
     "declarationDir": "types",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "types": [
+      "discord.js"
+    ]
   },
   "include": [
     "src",
