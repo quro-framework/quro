@@ -1,5 +1,6 @@
 import { CommandRequestInterface } from '../../../interfaces/CommandRequest'
 import { RequestArgs } from '../../../types/RequestArgs'
+import { Message } from '../../..'
 
 /*
  * CommandRequest class.
@@ -11,12 +12,20 @@ export class CommandRequest implements CommandRequestInterface {
   args: RequestArgs = []
 
   /**
+   * Message.
+   */
+  readonly message!: Message
+
+  /**
    * Constructor.
    *
    * @param data
    */
-  constructor(data: { args?: RequestArgs }) {
+  constructor(data: { args?: RequestArgs; message?: Message }) {
     this.args = data.args || []
+    if (data.message) {
+      this.message = data.message
+    }
   }
 
   /**
