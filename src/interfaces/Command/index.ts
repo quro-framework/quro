@@ -7,11 +7,6 @@ import { PipeNextInterface } from '../PipeNext'
  */
 export interface CommandInterface {
   /**
-   * Call on mounted.
-   */
-  onMount(): PromiseOr
-
-  /**
    * Call on handled.
    */
   onHandle(): Generator<
