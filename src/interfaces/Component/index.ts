@@ -10,6 +10,13 @@ export interface ComponentInterface {
   readonly context: ContextInterface
 
   /**
+   * Set context.
+   *
+   * @param context
+   */
+  setContext(context: ContextInterface): void
+
+  /**
    * Call on mounted.
    */
   onMounted(): void
