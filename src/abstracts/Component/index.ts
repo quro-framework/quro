@@ -6,17 +6,24 @@ import { ComponentInterface } from '../../interfaces/Component'
  */
 export class Component implements ComponentInterface {
   /**
-   * Runtime context.
+   * Context member.
    */
-  readonly context: ContextInterface
+  private mContext!: ContextInterface
 
   /**
-   * Component constructor.
+   * Runtime context.
+   */
+  get context() {
+    return this.mContext
+  }
+
+  /**
+   * Set context.
    *
    * @param context
    */
-  constructor(context: ContextInterface) {
-    this.context = context
+  setContext(context: ContextInterface) {
+    this.mContext = context
   }
 
   /**
