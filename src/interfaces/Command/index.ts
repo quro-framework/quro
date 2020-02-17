@@ -1,6 +1,7 @@
 import { PromiseOr } from '../../types'
 import { CommandResponseInterface } from '../CommandResponse'
 import { PipeNextInterface } from '../PipeNext'
+import { CommandRequestInterface } from '../CommandRequest'
 
 /*
  * CommandInterface.
@@ -9,7 +10,9 @@ export interface CommandInterface {
   /**
    * Call on handled.
    */
-  onHandle(): Generator<
+  onHandle(
+    request?: CommandRequestInterface
+  ): Generator<
     PromiseOr<CommandResponseInterface>,
     PromiseOr<CommandResponseInterface | void>
   >
