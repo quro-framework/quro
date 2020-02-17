@@ -5,9 +5,16 @@ import { RequestArgs } from '../../types'
  */
 export interface PipeNextInterface {
   /**
-   * Set args.
+   * Set append args.
    *
    * @param args
    */
-  setArgs(args: RequestArgs[0][]): this
+  setAppendArgs(args: RequestArgs[0][]): this
+
+  /**
+   * Set prepend args.
+   *
+   * @param args
+   */
+  setPrependArgs(args: RequestArgs[0][]): this
 }
