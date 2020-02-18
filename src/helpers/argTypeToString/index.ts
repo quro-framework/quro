@@ -11,5 +11,5 @@ export function argTypeToString(type: ArgType) {
   if (type === ArgType.Number) return 'number'
   if (type === ArgType.String) return 'string'
 
-  return 'unkonwn'
+  return 'unknown'
 }
