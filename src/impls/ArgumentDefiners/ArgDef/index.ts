@@ -43,63 +43,11 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
   description = ''
 
   /**
-   * Instantiate with argument type.
-   *
-   * @param type
-   */
-  constructor(type: ArgType)
-
-  /**
-   * Instantiate with data(Recommended).
-   *
-   * @param data
-   */
-  constructor(data: {
-    name?: string
-    type?: Type
-    defaultValue?: ValueType
-    expectedValues?: ValueType[]
-    exampleValue?: ValueType
-    description?: string
-  })
-
-  /**
-   * Minimal constructor.
-   *
-   * @param value
-   */
-  constructor(value?: any)
-
-  /**
    * ArgDef constructor.
    *
-   * @param typeOrData
-   */
-  constructor(typeOrData: any) {
-    if (typeof typeOrData === 'undefined') {
-      this.updateByData()
-    } else if (typeof typeOrData === 'object') {
-      this.updateByData(typeOrData)
-    } else {
-      this.updateType(typeOrData)
-    }
-  }
-
-  /**
-   * Update type.
-   *
-   * @param type
-   */
-  updateType(type: ArgType) {
-    this.type = type
-  }
-
-  /**
-   * Update argument definition.
-   *
    * @param data
    */
-  updateByData(
+  constructor(
     data: {
       name?: string
       type?: Type
