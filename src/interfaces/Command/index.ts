@@ -22,5 +22,8 @@ export interface CommandInterface {
    *
    * @param next
    */
-  onPipe(next: PipeNextInterface): PipeNextInterface
+  onPipe(
+    request: CommandRequestInterface,
+    next: PipeNextInterface
+  ): PipeNextInterface
 }
