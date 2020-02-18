@@ -29,7 +29,7 @@ export interface ArgDefInterface<
   defaultValue?: ValueType
 
   /**
-   * Excepted values.
+   * Expected values.
    */
   expectedValues: ValueType[]
 
