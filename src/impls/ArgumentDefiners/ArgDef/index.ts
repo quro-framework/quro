@@ -28,9 +28,9 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
   defaultValue?: ValueType
 
   /**
-   * Excepted values.
+   * Expected values.
    */
-  exceptedValues: ValueType[] = []
+  expectedValues: ValueType[] = []
 
   /**
    * Example value.
@@ -58,10 +58,17 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
     name?: string
     type?: Type
     defaultValue?: ValueType
-    exceptedValues?: ValueType[]
+    expectedValues?: ValueType[]
     exampleValue?: ValueType
     description?: string
   })
+
+  /**
+   * Minimal constructor.
+   *
+   * @param value
+   */
+  constructor(value?: any)
 
   /**
    * ArgDef constructor.
@@ -69,7 +76,9 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
    * @param typeOrData
    */
   constructor(typeOrData: any) {
-    if (typeof typeOrData === 'object') {
+    if (typeof typeOrData === 'undefined') {
+      this.updateByData()
+    } else if (typeof typeOrData === 'object') {
       this.updateByData(typeOrData)
     } else {
       this.updateType(typeOrData)
@@ -95,7 +104,7 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
       name?: string
       type?: Type
       defaultValue?: ValueType
-      exceptedValues?: ValueType[]
+      expectedValues?: ValueType[]
       exampleValue?: ValueType
       description?: string
     } = {}
@@ -103,7 +112,7 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
     this.name = data.name ?? ''
     this.type = data.type ?? ArgType.Any
     this.defaultValue = data.defaultValue
-    this.exceptedValues = data.exceptedValues ?? []
+    this.expectedValues = data.expectedValues ?? []
     this.exampleValue = data.exampleValue
     this.description = data.description ?? ''
   }
@@ -114,6 +123,15 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
    * @param value
    */
   validate<T>(value: T) {
+    return this.validateType(value) && this.validateWithExceptedValues(value)
+  }
+
+  /**
+   * Validate type.
+   *
+   * @param value
+   */
+  private validateType<T>(value: T) {
     const type = this.type
 
     if (type === ArgType.Any) return true
@@ -122,5 +140,19 @@ export class ArgDef<Type extends ArgType, ValueType extends ArgTypeMap[Type]>
     if (type === ArgType.String) return typeof value === 'string'
 
     return false
+  }
+
+  /**
+   * Validate whether value is expected value.
+   *
+   * @param value
+   */
+  private validateWithExceptedValues<T>(value: T) {
+    const expecteds = this.expectedValues
+
+    // No expected values.
+    if (expecteds.length === 0) return true
+
+    return expecteds.findIndex(expected => expected === value) !== -1
   }
 }
