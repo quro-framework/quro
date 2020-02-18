@@ -8,4 +8,5 @@ export const hello = (name: string): string => `Hello ${name}`
 export * from './impls'
 export * from './interfaces'
 export * from './types'
+export * from './helpers'
 export * from 'discord.js'
