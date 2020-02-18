@@ -31,7 +31,7 @@ export interface ArgDefInterface<
   /**
    * Excepted values.
    */
-  exceptedValues: ValueType[]
+  expectedValues: ValueType[]
 
   /**
    * Example value.
