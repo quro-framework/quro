@@ -5,6 +5,7 @@ import pkg from './package.json'
 const config: Configuration = {
   mode: 'development',
   entry: './src/index.ts',
+  target: 'node',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, './lib'),
@@ -20,7 +21,8 @@ const config: Configuration = {
     ]
   },
   resolve: {
-    extensions: ['.ts'],
+    modules: ['src', 'node_modules'],
+    extensions: ['.ts', '.js', '.json'],
     alias: {
       '@': path.resolve(__dirname, './src')
     }
