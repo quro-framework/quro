@@ -14,6 +14,26 @@ import { valueToString, argTypeToString } from '../../helpers'
  */
 export abstract class Command extends Component implements CommandInterface {
   /**
+   * Command name.
+   */
+  name = ''
+
+  /**
+   * Aliases of command name.
+   */
+  aliases = []
+
+  /**
+   * Command description.
+   */
+  description = ''
+
+  /**
+   * Example usages.
+   */
+  exampleUsages = []
+
+  /**
    * Type check.
    */
   typeCheck = true
