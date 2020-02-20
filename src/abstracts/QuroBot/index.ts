@@ -35,6 +35,14 @@ export type QuroBotOptions = {
  */
 export class QuroBot extends BotEventListenable implements QuroBotInterface {
   /**
+   * Default QuroBot options.
+   */
+  static readonly defaultOptions: QuroBotOptions = {
+    color: 0x2196f3,
+    prefixes: ['$']
+  }
+
+  /**
    * Registered components.
    */
   private components: ComponentInterface[] = []
@@ -72,17 +80,12 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
   /**
    * QuroBot constructor.
    */
-  constructor(
-    options: QuroBotOptions = {
-      color: 0x2196f3,
-      prefixes: ['$']
-    }
-  ) {
+  constructor(options: Partial<QuroBotOptions> = QuroBot.defaultOptions) {
     // Call BotEventListenable constructor.
     super()
 
     // Apply bot options.
-    this.applyOptions(options)
+    this.applyOptions({ ...QuroBot.defaultOptions, ...options })
 
     // Instantiate client.
     this.client = new Client()
