@@ -25,15 +25,15 @@ export class BotEventListenable implements BotEventListenableInterface {
    * Discord.js client.
    *
    */
-  private readonly client: Client
+  private eventListenableClient!: Client
 
   /**
-   * BotEventListenable constructor.
+   * Set event listenable client.
    *
    * @param client
    */
-  constructor(client: Client) {
-    this.client = client
+  setEventListenableClient(client: Client) {
+    this.eventListenableClient = client
   }
 
   /**
@@ -42,7 +42,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param channel
    */
   onChannelCreate(handler: (channel: Channel) => void) {
-    this.client.on('channelCreate', handler)
+    this.eventListenableClient.on('channelCreate', handler)
   }
 
   /**
@@ -51,7 +51,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param channel
    */
   onChannelDelete(handler: (channel: Channel) => void) {
-    this.client.on('channelDelete', handler)
+    this.eventListenableClient.on('channelDelete', handler)
   }
 
   /**
@@ -61,7 +61,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param time
    */
   onChannelPinsUpdate(handler: (channel: Channel, time: Date) => void) {
-    this.client.on('channelPinsUpdate', handler)
+    this.eventListenableClient.on('channelPinsUpdate', handler)
   }
 
   /**
@@ -71,7 +71,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param newChannel
    */
   onChannelUpdate(handler: (newChannel: Channel, oldChannel: Channel) => void) {
-    this.client.on('channelUpdate', handler)
+    this.eventListenableClient.on('channelUpdate', handler)
   }
 
   /**
@@ -82,7 +82,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onClientUserGuildSettingsUpdate(
     handler: (settings: ClientUserGuildSettings) => void
   ) {
-    this.client.on('clientUserGuildSettingsUpdate', handler)
+    this.eventListenableClient.on('clientUserGuildSettingsUpdate', handler)
   }
 
   /**
@@ -91,7 +91,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param settings
    */
   onClientUserSettingsUpdate(handler: (settings: ClientUserSettings) => void) {
-    this.client.on('clientUserSettingsUpdate', handler)
+    this.eventListenableClient.on('clientUserSettingsUpdate', handler)
   }
 
   /**
@@ -100,7 +100,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param info
    */
   onDebug(handler: (info: string) => void) {
-    this.client.on('debug', handler)
+    this.eventListenableClient.on('debug', handler)
   }
 
   /**
@@ -108,7 +108,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param event
    */
   onDisconnect(handler: (event: CloseEvent) => void) {
-    this.client.on('disconnect', handler)
+    this.eventListenableClient.on('disconnect', handler)
   }
 
   /**
@@ -117,7 +117,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param emoji
    */
   onEmojiCreate(handler: (emoji: Emoji) => void) {
-    this.client.on('emojiCreate', handler)
+    this.eventListenableClient.on('emojiCreate', handler)
   }
 
   /**
@@ -126,7 +126,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param emoji
    */
   onEmojiDelete(handler: (emoji: Emoji) => void) {
-    this.client.on('emojiDelete', handler)
+    this.eventListenableClient.on('emojiDelete', handler)
   }
 
   /**
@@ -136,7 +136,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param oldEmoji
    */
   onEmojiUpdate(handler: (newEmoji: Emoji, oldEmoji: Emoji) => void) {
-    this.client.on('emojiUpdate', handler)
+    this.eventListenableClient.on('emojiUpdate', handler)
   }
 
   /**
@@ -145,7 +145,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param error
    */
   onError(handler: (error: Error) => void) {
-    this.client.on('error', handler)
+    this.eventListenableClient.on('error', handler)
   }
 
   /**
@@ -155,7 +155,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param user
    */
   onGuildBanAdd(handler: (guild: Guild, user: User) => void) {
-    this.client.on('guildBanAdd', handler)
+    this.eventListenableClient.on('guildBanAdd', handler)
   }
 
   /**
@@ -165,7 +165,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param user
    */
   onGuildBanRemove(handler: (guild: Guild, user: User) => void) {
-    this.client.on('guildBanRemove', handler)
+    this.eventListenableClient.on('guildBanRemove', handler)
   }
 
   /**
@@ -174,7 +174,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param guild
    */
   onGuildCreate(handler: (guild: Guild) => void) {
-    this.client.on('guildCreate', handler)
+    this.eventListenableClient.on('guildCreate', handler)
   }
 
   /**
@@ -183,7 +183,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param guild
    */
   onGuildDelete(handler: (guild: Guild) => void) {
-    this.client.on('guildDelete', handler)
+    this.eventListenableClient.on('guildDelete', handler)
   }
 
   /**
@@ -192,7 +192,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param guild
    */
   onGuildIntegrationUpdate(handler: (guild: Guild) => void) {
-    this.client.on('guildIntegrationsUpdate', handler)
+    this.eventListenableClient.on('guildIntegrationsUpdate', handler)
   }
 
   /**
@@ -201,7 +201,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param member
    */
   onGuildMemberAdd(handler: (member: GuildMember) => void) {
-    this.client.on('guildMemberAdd', handler)
+    this.eventListenableClient.on('guildMemberAdd', handler)
   }
 
   /**
@@ -210,7 +210,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param member
    */
   onGuildMemberAvailable(handler: (member: GuildMember) => void) {
-    this.client.on('guildMemberAvailable', handler)
+    this.eventListenableClient.on('guildMemberAvailable', handler)
   }
 
   /**
@@ -219,7 +219,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param member
    */
   onGuildMemberRemove(handler: (member: GuildMember) => void) {
-    this.client.on('guildMemberRemove', handler)
+    this.eventListenableClient.on('guildMemberRemove', handler)
   }
 
   /**
@@ -229,7 +229,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param guild
    */
   onGuildMembersChunk(handler: (members: GuildMember[], guild: Guild) => void) {
-    this.client.on('guildMembersChunk', handler)
+    this.eventListenableClient.on('guildMembersChunk', handler)
   }
 
   /**
@@ -242,7 +242,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onGuildMemberSpeaking(
     handler: (member: GuildMember, speaking: boolean) => void
   ) {
-    this.client.on('guildMemberSpeaking', handler)
+    this.eventListenableClient.on('guildMemberSpeaking', handler)
   }
 
   /**
@@ -254,7 +254,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onGuildMemberUpdate(
     handler: (newMember: GuildMember, oldMember: GuildMember) => void
   ) {
-    this.client.on('guildMemberUpdate', handler)
+    this.eventListenableClient.on('guildMemberUpdate', handler)
   }
 
   /**
@@ -263,7 +263,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param guild
    */
   onGuildUnavaiable(handler: (guild: Guild) => void) {
-    this.client.on('guildUnavailable', handler)
+    this.eventListenableClient.on('guildUnavailable', handler)
   }
 
   /**
@@ -273,7 +273,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param oldGuild
    */
   onGuildUpdate(handler: (newGuild: Guild, oldGuild: Guild) => void) {
-    this.client.on('guildUpdate', handler)
+    this.eventListenableClient.on('guildUpdate', handler)
   }
 
   /**
@@ -282,7 +282,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param message
    */
   onMessage(handler: (message: Message) => void) {
-    this.client.on('message', handler)
+    this.eventListenableClient.on('message', handler)
   }
 
   /**
@@ -291,7 +291,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param message
    */
   onMessageDelete(handler: (message: Message) => void) {
-    this.client.on('messageDelete', handler)
+    this.eventListenableClient.on('messageDelete', handler)
   }
 
   /**
@@ -302,7 +302,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onMessageDeleteBulk(
     handler: (messages: Collection<Snowflake, Message>) => void
   ) {
-    this.client.on('messageDeleteBulk', handler)
+    this.eventListenableClient.on('messageDeleteBulk', handler)
   }
 
   /**
@@ -314,7 +314,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onMessageReactionAdd(
     handler: (reaction: MessageReaction, user: User) => void
   ) {
-    this.client.on('messageReactionAdd', handler)
+    this.eventListenableClient.on('messageReactionAdd', handler)
   }
 
   /**
@@ -326,7 +326,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onMessageReactionRemove(
     handler: (reaction: MessageReaction, user: User) => void
   ) {
-    this.client.on('messageReactionRemove', handler)
+    this.eventListenableClient.on('messageReactionRemove', handler)
   }
 
   /**
@@ -335,7 +335,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param message
    */
   onMessageReactionRemoveAll(handler: (message: Message) => void) {
-    this.client.on('messageReactionRemoveAll', handler)
+    this.eventListenableClient.on('messageReactionRemoveAll', handler)
   }
 
   /**
@@ -345,7 +345,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param oldMessage
    */
   onMessageUpdate(handler: (newMessage: Message, oldMessage: Message) => void) {
-    this.client.on('messageUpdate', handler)
+    this.eventListenableClient.on('messageUpdate', handler)
   }
 
   /**
@@ -357,7 +357,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onPresenceUpdate(
     handler: (newMember: GuildMember, oldMember: GuildMember) => void
   ) {
-    this.client.on('presenceUpdate', handler)
+    this.eventListenableClient.on('presenceUpdate', handler)
   }
 
   /**
@@ -373,21 +373,21 @@ export class BotEventListenable implements BotEventListenableInterface {
       method: string
     }) => void
   ) {
-    this.client.on('rateLimit', handler)
+    this.eventListenableClient.on('rateLimit', handler)
   }
 
   /**
    * On ready.
    */
   onReady(handler: () => void) {
-    this.client.on('ready', handler)
+    this.eventListenableClient.on('ready', handler)
   }
 
   /**
    * On reconnecting.
    */
   onReconnecting(handler: () => void) {
-    this.client.on('reconnecting', handler)
+    this.eventListenableClient.on('reconnecting', handler)
   }
 
   /**
@@ -396,7 +396,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param replayed
    */
   onResume(handler: (replayed: number) => void) {
-    this.client.on('resume', handler)
+    this.eventListenableClient.on('resume', handler)
   }
 
   /**
@@ -405,7 +405,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param role
    */
   onRoleCreate(handler: (role: Role) => void) {
-    this.client.on('roleCreate', handler)
+    this.eventListenableClient.on('roleCreate', handler)
   }
 
   /**
@@ -414,7 +414,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param role
    */
   onRoleDelete(handler: (role: Role) => void) {
-    this.client.on('roleDelete', handler)
+    this.eventListenableClient.on('roleDelete', handler)
   }
 
   /**
@@ -424,7 +424,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param oldRole
    */
   onRoleUpdate(handler: (newRole: Role, oldRole: Role) => void) {
-    this.client.on('roleUpdate', handler)
+    this.eventListenableClient.on('roleUpdate', handler)
   }
 
   /**
@@ -434,7 +434,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param user
    */
   onTypingStart(handler: (channel: Channel, user: User) => void) {
-    this.client.on('typingStart', handler)
+    this.eventListenableClient.on('typingStart', handler)
   }
 
   /**
@@ -444,7 +444,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param user
    */
   onTypingStop(handler: (channel: Channel, user: User) => void) {
-    this.client.on('typingStop', handler)
+    this.eventListenableClient.on('typingStop', handler)
   }
 
   /**
@@ -457,7 +457,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onUserNoteUpdate(
     handler: (user: User, newNote: string, oldNote: string) => void
   ) {
-    this.client.on('userNoteUpdate', handler)
+    this.eventListenableClient.on('userNoteUpdate', handler)
   }
 
   /**
@@ -467,7 +467,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param oldUser
    */
   onUserUpdate(handler: (newUser: User, oldUser: User) => void) {
-    this.client.on('userUpdate', handler)
+    this.eventListenableClient.on('userUpdate', handler)
   }
 
   /**
@@ -479,7 +479,7 @@ export class BotEventListenable implements BotEventListenableInterface {
   onVoiceStateUpdate(
     handler: (newMember: GuildMember, oldMember: GuildEmbedData) => void
   ) {
-    this.client.on('voiceStateUpdate', handler)
+    this.eventListenableClient.on('voiceStateUpdate', handler)
   }
 
   /**
@@ -488,7 +488,7 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param info
    */
   onWarn(handler: (info: string) => void) {
-    this.client.on('warn', handler)
+    this.eventListenableClient.on('warn', handler)
   }
 
   /**
@@ -497,6 +497,6 @@ export class BotEventListenable implements BotEventListenableInterface {
    * @param channel
    */
   onWebhookUpdate(handler: (channel: TextChannel) => void) {
-    this.client.on('webhookUpdate', handler)
+    this.eventListenableClient.on('webhookUpdate', handler)
   }
 }
