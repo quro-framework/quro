@@ -13,14 +13,15 @@
     "emitDecoratorMetadata": true,
     "types": [
       "discord.js",
-      "@types/jest"
+      "@types/jest",
+      "@types/node"
     ]
   },
   "include": [
-    "src",
-    "webpack.config.ts"
+    "src"
   ],
   "exclude": [
-    "lib"
+    "lib",
+    "webpack.config.ts"
   ]
 }
