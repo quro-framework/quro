@@ -34,6 +34,12 @@ export class Component implements ComponentInterface {
   }
 
   /**
+   * Call on registerd.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onRegister() {}
+
+  /**
    * Call on mounted.
    */
   // eslint-disable-next-line @typescript-eslint/no-empty-function
