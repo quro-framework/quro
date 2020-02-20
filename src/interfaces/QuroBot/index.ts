@@ -36,6 +36,11 @@ export interface QuroBotInterface extends BotEventListenable {
   prefixes: CommandPrefix[]
 
   /**
+   * Commands.
+   */
+  commands: CommandInterface[]
+
+  /**
    * Install plugin.
    *
    * @param plugin
