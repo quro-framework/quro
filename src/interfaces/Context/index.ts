@@ -1,4 +1,4 @@
-import { Client } from 'discord.js'
+import { QuroBotInterface } from '../QuroBot'
 
 /*
  * ContextInterface.
@@ -7,5 +7,5 @@ export interface ContextInterface {
   /**
    * Bot.
    */
-  readonly bot: Client
+  readonly bot: QuroBotInterface
 }
