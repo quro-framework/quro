@@ -2,11 +2,12 @@ import { PromiseOr } from '../../types'
 import { CommandResponseInterface } from '../CommandResponse'
 import { PipeNextInterface } from '../PipeNext'
 import { CommandRequestInterface } from '../CommandRequest'
+import { ComponentInterface } from '../Component'
 
 /*
  * CommandInterface.
  */
-export interface CommandInterface {
+export interface CommandInterface extends ComponentInterface {
   /**
    * Call on handled.
    */
