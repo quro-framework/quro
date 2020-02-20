@@ -1,4 +1,5 @@
 import { ContextInterface } from '../Context'
+import { PromiseOr } from '../../types'
 
 /*
  * ComponentInterface.
@@ -19,5 +20,5 @@ export interface ComponentInterface {
   /**
    * Call on mounted.
    */
-  onMounted(): void
+  onMounted(): PromiseOr
 }
