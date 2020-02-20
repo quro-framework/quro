@@ -12,9 +12,9 @@ export interface CommandRequestInterface {
   readonly message: Message
 
   /**
-   * Wheather call as pipe.
+   * Whether call as pipe exit.
    */
-  readonly isPipe: boolean
+  readonly isPipeExit: boolean
 
   /**
    * Pipe routes.
@@ -31,5 +31,5 @@ export interface CommandRequestInterface {
   /**
    * Get all arguments.
    */
-  get<T extends RequestArgs>(): T
+  all<T extends RequestArgs>(): T
 }
