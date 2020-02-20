@@ -18,6 +18,13 @@ export class Component implements ComponentInterface {
   }
 
   /**
+   * Bot.
+   */
+  get bot() {
+    return this.mContext.bot
+  }
+
+  /**
    * Set context.
    *
    * @param context
