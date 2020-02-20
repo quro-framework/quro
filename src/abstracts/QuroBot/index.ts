@@ -78,6 +78,11 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
   prefixes!: CommandPrefix[]
 
   /**
+   * Commands.
+   */
+  commands: CommandInterface[]
+
+  /**
    * QuroBot constructor.
    */
   constructor(options: Partial<QuroBotOptions> = QuroBot.defaultOptions) {
@@ -86,6 +91,9 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
 
     // Apply bot options.
     this.applyOptions({ ...QuroBot.defaultOptions, ...options })
+
+    // Initialize commands.
+    this.commands = []
 
     // Instantiate client.
     this.client = new Client()
