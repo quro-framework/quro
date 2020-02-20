@@ -1,9 +1,9 @@
 {
   "name": "quro",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "A simple Discord.js framework.",
   "main": "lib/index.js",
-  "types": "types/src",
+  "types": "lib",
   "author": "hota1024",
   "license": "MIT",
   "private": false,
