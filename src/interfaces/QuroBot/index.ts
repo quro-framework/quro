@@ -28,7 +28,7 @@ export interface QuroBotInterface extends BotEventListenable {
   /**
    * Primary bot color.
    */
-  color: string
+  color: number
 
   /**
    * Command prefixes.
