@@ -2,6 +2,7 @@ import { QuroPluginInterface } from '../QuroPlugin'
 import { Client } from 'discord.js'
 import { CommandInterface } from '../Command'
 import { ContextInterface } from '../Context'
+import { PromiseOr } from '../../types'
 
 /*
  * QuroBotInterface.
@@ -22,7 +23,7 @@ export interface QuroBotInterface {
    *
    * @param plugin
    */
-  use(plugin: QuroPluginInterface): this
+  use(plugin: QuroPluginInterface): PromiseOr<this>
 
   /**
    * Register a command.
@@ -37,4 +38,11 @@ export interface QuroBotInterface {
    * @param commands
    */
   registerCommands(commands: CommandInterface[]): this
+
+  /**
+   * Start bot with token.
+   *
+   * @param token
+   */
+  start(token: string): void
 }
