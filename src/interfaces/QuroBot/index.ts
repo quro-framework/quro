@@ -4,6 +4,7 @@ import { CommandInterface } from '../Command'
 import { ContextInterface } from '../Context'
 import { PromiseOr } from '../../types'
 import { BotEventListenable } from '../../abstracts'
+import { CommandPrefix } from '../../types/CommandPrefix'
 
 /*
  * QuroBotInterface.
@@ -18,6 +19,21 @@ export interface QuroBotInterface extends BotEventListenable {
    * Context.
    */
   readonly context: ContextInterface
+
+  /**
+   * Default nickname.
+   */
+  nickname?: string
+
+  /**
+   * Primary bot color.
+   */
+  color: string
+
+  /**
+   * Command prefixes.
+   */
+  prefixes: CommandPrefix[]
 
   /**
    * Install plugin.
