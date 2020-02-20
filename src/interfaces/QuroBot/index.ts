@@ -3,11 +3,12 @@ import { Client } from 'discord.js'
 import { CommandInterface } from '../Command'
 import { ContextInterface } from '../Context'
 import { PromiseOr } from '../../types'
+import { BotEventListenable } from '../../abstracts'
 
 /*
  * QuroBotInterface.
  */
-export interface QuroBotInterface {
+export interface QuroBotInterface extends BotEventListenable {
   /**
    * Discord.js client.
    */
