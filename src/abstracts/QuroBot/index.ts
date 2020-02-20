@@ -6,11 +6,12 @@ import { ContextBuilder } from '../../classes/builders/ContextBuilder'
 import { QuroPluginInterface } from '../../interfaces/QuroPlugin'
 import { CommandInterface } from '../../interfaces/Command'
 import { PromiseOr } from '../../types'
+import { BotEventListenable } from '../BotEventListenable'
 
 /*
  * QuroBot class.
  */
-export class QuroBot implements QuroBotInterface {
+export class QuroBot extends BotEventListenable implements QuroBotInterface {
   /**
    * Registered components.
    */
@@ -30,8 +31,17 @@ export class QuroBot implements QuroBotInterface {
    * QuroBot constructor.
    */
   constructor() {
+    super()
+    // Instantiate client.
     this.client = new Client()
+
+    // Set EventListenable client.
+    this.setEventListenableClient(this.client)
+
+    // Generate context.
     this.context = new ContextBuilder().setBot(this).build()
+
+    // Setup bot.
     this.setup()
   }
 
