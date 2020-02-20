@@ -15,6 +15,7 @@ import {
   TextChannel,
   Client
 } from 'discord.js'
+import { BotEventListenableInterface } from '../../interfaces/BotEventListenable'
 
 /*
  * BotEventListenable class.
