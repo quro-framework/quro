@@ -18,6 +18,11 @@ export interface ComponentInterface {
   setContext(context: ContextInterface): void
 
   /**
+   * Call on registered.
+   */
+  onRegister(): PromiseOr
+
+  /**
    * Call on mounted.
    */
   onMounted(): PromiseOr
