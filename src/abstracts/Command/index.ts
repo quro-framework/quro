@@ -30,10 +30,13 @@ export abstract class Command extends Component implements CommandInterface {
    */
   abstract onHandle(
     request?: CommandRequestInterface
-  ): Generator<
-    PromiseOr<CommandResponseInterface>,
-    PromiseOr<CommandResponseInterface | void>
-  >
+  ):
+    | Generator<
+        PromiseOr<CommandResponseInterface>,
+        PromiseOr<CommandResponseInterface | void>
+      >
+    | CommandResponseInterface
+    | void
 
   /**
    * Call on pipe.
