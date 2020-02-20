@@ -24,14 +24,14 @@ export interface BotEventListenableInterface {
    *
    * @param channel
    */
-  onChannelCreate(channel: Channel): void
+  onChannelCreate(handler: (channel: Channel) => void): void
 
   /**
    * On channel delete.
    *
    * @param channel
    */
-  onChannelDelete(channel: Channel): void
+  onChannelDelete(handler: (channel: Channel) => void): void
 
   /**
    * On channel pins update.
@@ -39,7 +39,7 @@ export interface BotEventListenableInterface {
    * @param channel
    * @param time
    */
-  onChannelPinsUpdate(channel: Channel, time: Date): void
+  onChannelPinsUpdate(handler: (channel: Channel, time: Date) => void): void
 
   /**
    * On channel update.
@@ -47,48 +47,54 @@ export interface BotEventListenableInterface {
    * @param oldChannel
    * @param newChannel
    */
-  onChannelUpdate(newChannel: Channel, oldChannel: Channel): void
+  onChannelUpdate(
+    handler: (newChannel: Channel, oldChannel: Channel) => void
+  ): void
 
   /**
    * On client user guild settings update.
    *
    * @param settings
    */
-  onClientUserGuildSettingsUpdate(settings: ClientUserGuildSettings): void
+  onClientUserGuildSettingsUpdate(
+    handler: (settings: ClientUserGuildSettings) => void
+  ): void
 
   /**
    * On client user settings update.
    *
    * @param settings
    */
-  onClientUserSettingsUpdate(settings: ClientUserSettings): void
+  onClientUserSettingsUpdate(
+    handler: (settings: ClientUserSettings) => void
+  ): void
 
   /**
    * On debug.
    *
    * @param info
    */
-  onDebug(info: string): void
+  onDebug(handler: (info: string) => void): void
 
   /**
    * On disconnect.
    * @param event
    */
-  onDisconnect(event: CloseEvent): void
+  onDisconnect(handler: (event: CloseEvent) => void): void
 
   /**
    * On emoji create.
    *
    * @param emoji
    */
-  onEmojiCreate(emoji: Emoji): void
+  onEmojiCreate(handler: (emoji: Emoji) => void): void
 
   /**
    * On emoji delete.
    *
    * @param emoji
    */
-  onEmojiDelete(emoji: Emoji): void
+  onEmojiDelete(handler: (emoji: Emoji) => void): void
 
   /**
    * On emoji update.
@@ -96,14 +102,14 @@ export interface BotEventListenableInterface {
    * @param newEmoji
    * @param oldEmoji
    */
-  onEmojiUpdate(newEmoji: Emoji, oldEmoji: Emoji): void
+  onEmojiUpdate(handler: (newEmoji: Emoji, oldEmoji: Emoji) => void): void
 
   /**
    * On error.
    *
    * @param error
    */
-  onError(error: Error): void
+  onError(handler: (error: Error) => void): void
 
   /**
    * On guild ban add.
@@ -111,7 +117,7 @@ export interface BotEventListenableInterface {
    * @param guild
    * @param user
    */
-  onGuildBanAdd(guild: Guild, user: User): void
+  onGuildBanAdd(handler: (guild: Guild, user: User) => void): void
 
   /**
    * On guild ban remove.
@@ -119,49 +125,49 @@ export interface BotEventListenableInterface {
    * @param guild
    * @param user
    */
-  onGuildBanRemove(guild: Guild, user: User): void
+  onGuildBanRemove(handler: (guild: Guild, user: User) => void): void
 
   /**
    * On guild create.
    *
    * @param guild
    */
-  onGuildCreate(guild: Guild): void
+  onGuildCreate(handler: (guild: Guild) => void): void
 
   /**
    * On guild delete.
    *
    * @param guild
    */
-  onGuildDelete(guild: Guild): void
+  onGuildDelete(handler: (guild: Guild) => void): void
 
   /**
    * On guild integration update.
    *
    * @param guild
    */
-  onGuildIntegrationUpdate(guild: Guild): void
+  onGuildIntegrationUpdate(handler: (guild: Guild) => void): void
 
   /**
    * On guild member add.
    *
    * @param member
    */
-  onGuildMemberAdd(member: GuildMember): void
+  onGuildMemberAdd(handler: (member: GuildMember) => void): void
 
   /**
    * On guild member avaiable.
    *
    * @param member
    */
-  onGuildMemberAvailable(member: GuildMember): void
+  onGuildMemberAvailable(handler: (member: GuildMember) => void): void
 
   /**
    * On guild member remove.
    *
    * @param member
    */
-  onGuildMemberRemove(member: GuildMember): void
+  onGuildMemberRemove(handler: (member: GuildMember) => void): void
 
   /**
    * On guild members chunk.
@@ -169,7 +175,9 @@ export interface BotEventListenableInterface {
    * @param members
    * @param guild
    */
-  onGuildMembersChunk(members: GuildMember[], guild: Guild): void
+  onGuildMembersChunk(
+    handler: (members: GuildMember[], guild: Guild) => void
+  ): void
 
   /**
    *
@@ -178,7 +186,9 @@ export interface BotEventListenableInterface {
    * @param member
    * @param speaking
    */
-  onGuildMemberSpeaking(member: GuildMember, speaking: boolean): void
+  onGuildMemberSpeaking(
+    handler: (member: GuildMember, speaking: boolean) => void
+  ): void
 
   /**
    * On guild member update.
@@ -186,14 +196,16 @@ export interface BotEventListenableInterface {
    * @param newMember
    * @param oldMember
    */
-  onGuildMemberUpdate(newMember: GuildMember, oldMember: GuildMember): void
+  onGuildMemberUpdate(
+    handler: (newMember: GuildMember, oldMember: GuildMember) => void
+  ): void
 
   /**
    * On guild unavaiable.
    *
    * @param guild
    */
-  onGuildUnavaiable(guild: Guild): void
+  onGuildUnavaiable(handler: (guild: Guild) => void): void
 
   /**
    * On guild update.
@@ -201,28 +213,30 @@ export interface BotEventListenableInterface {
    * @param newGuild
    * @param oldGuild
    */
-  onGuildUpdate(newGuild: Guild, oldGuild: Guild): void
+  onGuildUpdate(handler: (newGuild: Guild, oldGuild: Guild) => void): void
 
   /**
    * On message.
    *
    * @param message
    */
-  onMessage(message: Message): void
+  onMessage(handler: (message: Message) => void): void
 
   /**
    * On message delete.
    *
    * @param message
    */
-  onMessageDelete(message: Message): void
+  onMessageDelete(handler: (message: Message) => void): void
 
   /**
    * On message delete bulk.
    *
    * @param messages
    */
-  onMessageDeleteBulk(messages: Collection<Snowflake, Message>): void
+  onMessageDeleteBulk(
+    handler: (messages: Collection<Snowflake, Message>) => void
+  ): void
 
   /**
    * On message reaction add.
@@ -230,7 +244,9 @@ export interface BotEventListenableInterface {
    * @param reaction
    * @param user
    */
-  onMessageReactionAdd(reaction: MessageReaction, user: User): void
+  onMessageReactionAdd(
+    handler: (reaction: MessageReaction, user: User) => void
+  ): void
 
   /**
    * On message reaction remove.
@@ -238,14 +254,16 @@ export interface BotEventListenableInterface {
    * @param reaction
    * @param user
    */
-  onMessageReactionRemove(reaction: MessageReaction, user: User): void
+  onMessageReactionRemove(
+    handler: (reaction: MessageReaction, user: User) => void
+  ): void
 
   /**
    * On message reaction remove all.
    *
    * @param message
    */
-  onMessageReactionRemoveAll(message: Message): void
+  onMessageReactionRemoveAll(handler: (message: Message) => void): void
 
   /**
    * On message update.
@@ -253,7 +271,9 @@ export interface BotEventListenableInterface {
    * @param newMessage
    * @param oldMessage
    */
-  onMessageUpdate(newMessage: Message, oldMessage: Message): void
+  onMessageUpdate(
+    handler: (newMessage: Message, oldMessage: Message) => void
+  ): void
 
   /**
    * On presence update.
@@ -261,50 +281,54 @@ export interface BotEventListenableInterface {
    * @param newMember
    * @param oldMember
    */
-  onPresenceUpdate(newMember: GuildMember, oldMember: GuildMember): void
+  onPresenceUpdate(
+    handler: (newMember: GuildMember, oldMember: GuildMember) => void
+  ): void
 
   /**
    * On rate limit.
    *
    * @param rateLimitInfo
    */
-  onRateLimit(rateLimitInfo: {
-    limit: number
-    timeDifference: number
-    path: string
-    method: string
-  }): void
+  onRateLimit(
+    handler: (rateLimitInfo: {
+      limit: number
+      timeDifference: number
+      path: string
+      method: string
+    }) => void
+  ): void
 
   /**
    * On ready.
    */
-  onReady(): void
+  onReady(handler: () => void): void
 
   /**
    * On reconnecting.
    */
-  onReconnecting(): void
+  onReconnecting(handler: () => void): void
 
   /**
    * On resume.
    *
    * @param replayed
    */
-  onResume(replayed: number): void
+  onResume(handler: (replayed: number) => void): void
 
   /**
    * On role create.
    *
    * @param role
    */
-  onRoleCreate(role: Role): void
+  onRoleCreate(handler: (role: Role) => void): void
 
   /**
    * On role delete.
    *
    * @param role
    */
-  onRoleDelete(role: Role): void
+  onRoleDelete(handler: (role: Role) => void): void
 
   /**
    * On role update.
@@ -312,7 +336,7 @@ export interface BotEventListenableInterface {
    * @param newRole
    * @param oldRole
    */
-  onRoleUpdate(newRole: Role, oldRole: Role): void
+  onRoleUpdate(handler: (newRole: Role, oldRole: Role) => void): void
 
   /**
    * On typing start.
@@ -320,7 +344,7 @@ export interface BotEventListenableInterface {
    * @param channel
    * @param user
    */
-  onTypingStart(channel: Channel, user: User): void
+  onTypingStart(handler: (channel: Channel, user: User) => void): void
 
   /**
    * On typing stop.
@@ -328,7 +352,7 @@ export interface BotEventListenableInterface {
    * @param channel
    * @param user
    */
-  onTypingStop(channel: Channel, user: User): void
+  onTypingStop(handler: (channel: Channel, user: User) => void): void
 
   /**
    * On user note update.
@@ -337,7 +361,9 @@ export interface BotEventListenableInterface {
    * @param newNote
    * @param oldNote
    */
-  onUserNoteUpdate(user: User, newNote: string, oldNote: string): void
+  onUserNoteUpdate(
+    handler: (user: User, newNote: string, oldNote: string) => void
+  ): void
 
   /**
    * On user update.
@@ -345,7 +371,7 @@ export interface BotEventListenableInterface {
    * @param newUser
    * @param oldUser
    */
-  onUserUpdate(newUser: User, oldUser: User): void
+  onUserUpdate(handler: (newUser: User, oldUser: User) => void): void
 
   /**
    * On voice state update.
@@ -353,19 +379,21 @@ export interface BotEventListenableInterface {
    * @param newMember
    * @param oldMember
    */
-  onVoiceStateUpdate(newMember: GuildMember, oldMember: GuildEmbedData): void
+  onVoiceStateUpdate(
+    handler: (newMember: GuildMember, oldMember: GuildEmbedData) => void
+  ): void
 
   /**
    * On warn.
    *
    * @param info
    */
-  onWarn(info: string): void
+  onWarn(handler: (info: string) => void): void
 
   /**
    * On webhook update.
    *
    * @param channel
    */
-  onWebhookUpdate(channel: TextChannel): void
+  onWebhookUpdate(handler: (channel: TextChannel) => void): void
 }
