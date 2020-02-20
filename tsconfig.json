@@ -7,7 +7,6 @@
     "outDir": "lib",
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "types",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
