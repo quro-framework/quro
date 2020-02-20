@@ -1,6 +1,7 @@
 import { CommandRequestInterface } from '../../../interfaces/CommandRequest'
 import { RequestArgs } from '../../../types/RequestArgs'
 import { Message } from '../../..'
+import { PipeNextInterface } from '../../../interfaces/PipeNext'
 
 /*
  * CommandRequest class.
@@ -15,6 +16,16 @@ export class CommandRequest implements CommandRequestInterface {
    * Message.
    */
   readonly message!: Message
+
+  /**
+   * Whether call as pipe exit.
+   */
+  readonly isPipeExit!: boolean
+
+  /**
+   * Pipe routes.
+   */
+  readonly pipeRoutes!: PipeNextInterface[]
 
   /**
    * Constructor.
@@ -33,7 +44,7 @@ export class CommandRequest implements CommandRequestInterface {
    *
    * @param index
    */
-  get<T extends RequestArgs[0]>(index: number): T {
+  get<T extends RequestArgs[0]>(index: number) {
     return this.args[index] as T
   }
 
