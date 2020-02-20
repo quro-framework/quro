@@ -12,10 +12,13 @@ export interface CommandInterface {
    */
   onHandle(
     request?: CommandRequestInterface
-  ): Generator<
-    PromiseOr<CommandResponseInterface>,
-    PromiseOr<CommandResponseInterface | void>
-  >
+  ):
+    | Generator<
+        PromiseOr<CommandResponseInterface>,
+        PromiseOr<CommandResponseInterface | void>
+      >
+    | CommandResponseInterface
+    | void
 
   /**
    * Call on pipe.
