@@ -76,6 +76,11 @@ export class CommandManager extends Component
 
     for (const commandData of commandsData) {
       const isPipeExit = commandData === commandsData[commandsData.length - 1]
+
+      if (commandData.name === '') {
+        throw new QuroError(`Unexpected command name. name is empy.`)
+      }
+
       const command = this.getCommand(commandData.name)
 
       if (typeof command === 'undefined') {
@@ -175,7 +180,7 @@ export class CommandManager extends Component
   private getCommand(name: string) {
     const command = this.bot.commands.find(command => {
       if (command.name === name) return true
-      if (command.aliases.findIndex(alias => alias === name) !== 0) return true
+      if (command.aliases.findIndex(alias => alias === name) !== -1) return true
 
       return false
     })
