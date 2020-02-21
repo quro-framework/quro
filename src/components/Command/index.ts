@@ -96,7 +96,9 @@ export abstract class Command extends Component implements CommandInterface {
 
         if (typeof value === 'undefined') {
           throw new QuroError(
-            `Argument '${def.name ?? key}' has not default value.`
+            `Argument '${
+              def.name === '' ? key : def.name
+            }' has not default value.`
           )
         }
 
