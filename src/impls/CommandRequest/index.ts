@@ -75,8 +75,8 @@ export class CommandRequest implements CommandRequestInterface {
     prefixString?: string
     prefixObject?: CommandPrefix
     requestString?: string
-    commandString: string
-    argsString: string
+    commandString?: string
+    argsString?: string
   }) {
     this.args = data.args || []
     if (data.message) {
