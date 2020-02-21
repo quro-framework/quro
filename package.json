@@ -1,6 +1,6 @@
 {
   "name": "quro",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "A simple Discord.js framework.",
   "main": "lib/index.js",
   "types": "lib",
