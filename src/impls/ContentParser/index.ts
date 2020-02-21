@@ -84,6 +84,7 @@ export class ContentParser implements ContentParserInterface {
     let isString = false
     let stringCap = ''
     let buffer = ''
+    let argumentString = ''
 
     const tokens: ContentParseToken[] = []
     const isState = (s: ContentParserState) => s === state
@@ -107,7 +108,12 @@ export class ContentParser implements ContentParserInterface {
         } else if (this.isEscapeChar(char) && !isEscape) {
           isEscape = true
         } else if (this.isPipelineChar(char) && !isEscape) {
-          tokens.push(this.createToken(ContentParseTokenType.CommandCallEnd))
+          tokens.push(
+            this.createToken(ContentParseTokenType.CommandCallEnd, {
+              originalString: '',
+              argumentString: argumentString.trim()
+            })
+          )
           tokens.push(this.createToken(ContentParseTokenType.Pipeline))
           state = ContentParserState.CommandName
         } else if (!(isSeparator && isState(ContentParserState.CommandName))) {
@@ -122,17 +128,25 @@ export class ContentParser implements ContentParserInterface {
         if (isState(ContentParserState.CommandName) && buffer !== '') {
           tokens.push(
             this.createToken(ContentParseTokenType.CommandCallStart, {
-              commandName: buffer
+              commandName: buffer,
+              originalString: buffer
             })
           )
 
+          argumentString = ''
           state = ContentParserState.Argument
         } else if (isState(ContentParserState.Argument)) {
           tokens.push(this.parseArgument(buffer))
+          argumentString += buffer + char
         }
 
         if (isEnd) {
-          tokens.push(this.createToken(ContentParseTokenType.CommandCallEnd))
+          tokens.push(
+            this.createToken(ContentParseTokenType.CommandCallEnd, {
+              originalString: '',
+              argumentString: argumentString.trim()
+            })
+          )
         }
 
         buffer = ''
@@ -153,19 +167,23 @@ export class ContentParser implements ContentParserInterface {
 
     if (!isNaN(numberValue)) {
       return this.createToken(ContentParseTokenType.NumberArgument, {
-        numberValue
+        numberValue,
+        originalString: value
       })
     } else if (this.isTrueString(value)) {
       return this.createToken(ContentParseTokenType.BooleanArgument, {
-        booleanValue: true
+        booleanValue: true,
+        originalString: value
       })
     } else if (this.isFalseString(value)) {
       return this.createToken(ContentParseTokenType.BooleanArgument, {
-        booleanValue: false
+        booleanValue: false,
+        originalString: value
       })
     } else {
       return this.createToken(ContentParseTokenType.StringArgument, {
-        stringValue: value
+        stringValue: value,
+        originalString: value
       })
     }
   }
@@ -246,6 +264,7 @@ export class ContentParser implements ContentParserInterface {
   ) {
     const token: ContentParseToken = {
       type,
+      originalString: '',
       ...data
     }
 
