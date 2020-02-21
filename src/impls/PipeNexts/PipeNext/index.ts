@@ -50,7 +50,7 @@ export class PipeNext implements PipeNextInterface {
    * @param args
    */
   setAppendArgs(args: RequestArgs[0][]) {
-    this.appendArgs = args
+    this.mAppendArgs = args
     return this
   }
 
@@ -60,7 +60,7 @@ export class PipeNext implements PipeNextInterface {
    * @param args
    */
   setPrependArgs(args: RequestArgs[0][]) {
-    this.prependArgs = args
+    this.mPrependArgs = args
     return this
   }
 }
