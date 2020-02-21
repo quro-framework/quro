@@ -89,4 +89,11 @@ describe('ContentParser test', () => {
     expect(tokens[8].commandName).toBe('tile')
     expect(tokens[9].type).toBe(ContentParseTokenType.CommandCallEnd)
   })
+
+  test('String cap', () => {
+    const parser = new ContentParser()
+    const tokens = parser.parse(`reverse 'The program says "Hello world"'`)
+
+    expect(tokens[2].stringValue).toBe('The program says "Hello world"')
+  })
 })
