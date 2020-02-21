@@ -1,15 +1,19 @@
 import { Component } from '../Component'
 import { CommandManagerInterface } from '../../interfaces/CommandManager'
 import { Message } from 'discord.js'
-import { ContentParser, CommandRequest } from '../../impls'
+import { ContentParser } from '../../impls'
 import {
   ContentParseToken,
   ContentParseTokenType,
-  RequestArgs
+  RequestArgs,
+  PromiseOr
 } from '../../types'
 import { QuroError } from '../QuroError'
 import { CommandRequestBuilder } from '../../classes/builders/CommandRequestBuilder'
 import { CommandRequestInterface } from '../../interfaces/CommandRequest'
+import { CommandResponseInterface } from '../../interfaces/CommandResponse'
+import { PipeNextInterface } from '../../interfaces/PipeNext'
+import { PipeNext } from '../../impls/PipeNexts/PipeNext'
 
 /**
  * CommandData type.
@@ -62,8 +66,16 @@ export class CommandManager extends Component
     // Parse commands.
     const commandsData = this.parseTokens(tokens)
 
+    /**
+     * Pipe data.
+     */
+    const hasPipes = commandsData.length > 1
+    const pipeRoutes: PipeNextInterface[] = []
+    let appendArgs: RequestArgs = []
+    let prependArgs: RequestArgs = []
+
     for (const commandData of commandsData) {
-      const isLast = commandData === commandsData[commandsData.length - 1]
+      const isPipeExit = commandData === commandsData[commandsData.length - 1]
       const command = this.getCommand(commandData.name)
 
       if (typeof command === 'undefined') {
@@ -71,8 +83,10 @@ export class CommandManager extends Component
       }
 
       const request = new CommandRequestBuilder()
-        .setArgs(commandData.args)
+        .setArgs([...prependArgs, ...commandData.args, ...appendArgs])
         .setMessage(message)
+        .setIsPipeExit(hasPipes && isPipeExit)
+        .setPipeRoutes(pipeRoutes)
         .setCommand(command)
         .setPrefixString(prefix)
         .setPrefixObject(prefixObject)
@@ -80,9 +94,24 @@ export class CommandManager extends Component
         .setCommandString(commandString)
         .build()
 
-      const response = await this.dispatchRequest(request)
-      console.log(response)
+      if (hasPipes && !isPipeExit) {
+        const next = this.dispatchPipe(request)
+        prependArgs = next.prependArgs
+        appendArgs = next.appendArgs
+      } else {
+        await this.dispatchRequest(request)
+      }
     }
+  }
+
+  /**
+   * Dispatch pipe.
+   *
+   * @param request
+   */
+  private dispatchPipe(request: CommandRequestInterface) {
+    const pipeNext = new PipeNext(request)
+    return request.command.onPipe(request, pipeNext)
   }
 
   /**
@@ -91,7 +120,51 @@ export class CommandManager extends Component
    * @param request
    */
   private async dispatchRequest(request: CommandRequestInterface) {
-    return await request.command.onHandle(request)
+    const result = await request.command.onHandle(request)
+    if (typeof result === 'undefined') return
+    if (this.isCommandResponse(result)) {
+      await result.dispatch(request, this.context)
+    }
+    if (this.isGenerator(result)) {
+      let process = result.next()
+
+      while (process.done === false) {
+        const response = await process.value
+        await response.dispatch(request, this.context)
+        process = result.next()
+      }
+
+      const response = await process.value
+      if (typeof response !== 'undefined') {
+        await response.dispatch(request, this.context)
+      }
+    }
+  }
+
+  /**
+   * Returns is generator.
+   *
+   * @param value
+   */
+  private isGenerator(
+    value: any
+  ): value is Generator<
+    PromiseOr<CommandResponseInterface>,
+    PromiseOr<CommandResponseInterface | void>
+  > {
+    return (
+      typeof value[Symbol.iterator] !== 'undefined' ||
+      typeof value[Symbol.asyncIterator] !== 'undefined'
+    )
+  }
+
+  /**
+   * Returns whether value is command response.
+   *
+   * @param value
+   */
+  private isCommandResponse(value: any): value is CommandResponseInterface {
+    return typeof value.dispatch === 'function'
   }
 
   /**
