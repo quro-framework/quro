@@ -31,8 +31,7 @@
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.0",
     "ts-node": "^8.6.2",
-    "typescript": "^3.7.5",
-    "uglify-js": "^3.8.0"
+    "typescript": "^3.7.5"
   },
   "dependencies": {
     "discord.js": "^11.5.1"
