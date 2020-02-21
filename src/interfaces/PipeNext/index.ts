@@ -11,6 +11,16 @@ export interface PipeNextInterface {
   readonly request: CommandRequestInterface
 
   /**
+   * Append arguments.
+   */
+  readonly appendArgs: RequestArgs
+
+  /**
+   * Prepend arguments.
+   */
+  readonly prependArgs: RequestArgs
+
+  /**
    * Set append args.
    *
    * @param args
