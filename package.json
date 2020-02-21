@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "production": "tsc && uglify",
+    "production": "tsc",
     "watch": "tsc --watch",
     "test": "jest",
     "test:watch": "jest --watchAll",
