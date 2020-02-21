@@ -7,6 +7,7 @@ import {
   PromiseOr,
   QuroPluginInterface
 } from '../..'
+import { User, Collection } from 'discord.js'
 
 /*
  * QuroBotInterface.
@@ -21,6 +22,11 @@ export interface QuroBotInterface extends BotEventListenable {
    * Context.
    */
   readonly context: ContextInterface
+
+  /**
+   * Authors.
+   */
+  readonly authors: Collection<string, User>
 
   /**
    * Default nickname.
