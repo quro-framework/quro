@@ -1,5 +1,4 @@
-import { ArgType } from '../../src/types/ArgType'
-import { argTypeToString } from '../../src'
+import { argTypeToString, ArgType } from '../../src'
 
 describe('argTypeToString test', () => {
   test('ArgType to string', () => {

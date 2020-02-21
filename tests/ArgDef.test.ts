@@ -1,5 +1,4 @@
-import { ArgDef } from '../src'
-import { ArgType } from '../src/types/ArgType'
+import { ArgDef, ArgType } from '../src'
 
 describe('ArgDef test', () => {
   test('Instantiate with full data', () => {
