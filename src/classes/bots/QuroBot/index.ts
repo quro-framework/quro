@@ -30,6 +30,11 @@ export type QuroBotOptions = {
    * Command prefixes.
    */
   prefixes: CommandPrefix[]
+
+  /**
+   * Author IDs.
+   */
+  authorIds: string[]
 }
 
 /*
@@ -41,7 +46,8 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
    */
   static readonly defaultOptions: QuroBotOptions = {
     color: 0x2196f3,
-    prefixes: ['$']
+    prefixes: ['$'],
+    authorIds: []
   }
 
   /**
@@ -65,6 +71,11 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
   readonly context: ContextInterface
 
   /**
+   * Author ID.
+   */
+  private authorIds!: string[]
+
+  /**
    * Default nickname.
    */
   nickname?: string
@@ -73,6 +84,15 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
    * Primary bot color.
    */
   color!: number
+
+  /**
+   * Author.
+   */
+  get authors() {
+    return this.client.users.filter(
+      user => !!this.authorIds.find(id => user.id === id)
+    )
+  }
 
   /**
    * Command prefixes.
@@ -125,6 +145,7 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
     this.nickname = options.nickname
     this.color = options.color
     this.prefixes = options.prefixes
+    this.authorIds = options.authorIds
   }
 
   /**
