@@ -96,4 +96,11 @@ describe('ContentParser test', () => {
 
     expect(tokens[2].stringValue).toBe('The program says "Hello world"')
   })
+
+  test('Argument string', () => {
+    const parser = new ContentParser()
+    const tokens = parser.parse(`reverse The program says "Hello world"`)
+
+    expect(tokens[6].argumentString).toBe('The program says "Hello world"')
+  })
 })
