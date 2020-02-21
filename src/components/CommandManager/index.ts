@@ -21,6 +21,7 @@ import {
 type CommandData = {
   name: string
   args: RequestArgs
+  argsString: string
 }
 
 /*
@@ -97,6 +98,7 @@ export class CommandManager extends Component
         .setPrefixObject(prefixObject)
         .setRequestString(content)
         .setCommandString(commandString)
+        .setArgsString(commandData.argsString)
         .build()
 
       if (hasPipes && !isPipeExit) {
@@ -205,7 +207,8 @@ export class CommandManager extends Component
       } else if (token.type === ContentParseTokenType.CommandCallEnd) {
         commands.push({
           name: command?.commandName as string,
-          args
+          args,
+          argsString: token.argumentString ?? ''
         })
       } else if (token.type === ContentParseTokenType.StringArgument) {
         args.push(token.stringValue as string)
