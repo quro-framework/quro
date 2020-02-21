@@ -2,6 +2,8 @@ import { CommandRequestInterface } from '../../../interfaces/CommandRequest'
 import { RequestArgs } from '../../../types/RequestArgs'
 import { Message } from '../../..'
 import { PipeNextInterface } from '../../../interfaces/PipeNext'
+import { CommandInterface } from '../../../interfaces/Command'
+import { CommandPrefix } from '../../../types/CommandPrefix'
 
 /*
  * CommandRequest class.
@@ -28,6 +30,36 @@ export class CommandRequest implements CommandRequestInterface {
   readonly pipeRoutes!: PipeNextInterface[]
 
   /**
+   * Command.
+   */
+  readonly command!: CommandInterface
+
+  /**
+   * Prefix string.
+   */
+  readonly prefixString: string
+
+  /**
+   * Prefix object.
+   */
+  readonly prefixObject: CommandPrefix
+
+  /**
+   * Request string.
+   */
+  readonly requestString: string
+
+  /**
+   * Command string.
+   */
+  readonly commandString: string
+
+  /**
+   * Args string.
+   */
+  readonly argsString: string
+
+  /**
    * Constructor.
    *
    * @param data
@@ -37,6 +69,12 @@ export class CommandRequest implements CommandRequestInterface {
     message?: Message
     isPipeExit?: boolean
     pipeRoutes?: PipeNextInterface[]
+    command?: CommandInterface
+    prefixString?: string
+    prefixObject?: CommandPrefix
+    requestString?: string
+    commandString: string
+    argsString: string
   }) {
     this.args = data.args || []
     if (data.message) {
@@ -44,6 +82,14 @@ export class CommandRequest implements CommandRequestInterface {
     }
     this.isPipeExit = data.isPipeExit ?? false
     this.pipeRoutes = data.pipeRoutes ?? []
+    if (data.command) {
+      this.command = data.command
+    }
+    this.prefixString = data.prefixString || ''
+    this.prefixObject = data.prefixObject || ''
+    this.requestString = data.requestString || ''
+    this.commandString = data.commandString || ''
+    this.argsString = data.argsString || ''
   }
 
   /**
