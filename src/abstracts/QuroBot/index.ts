@@ -147,6 +147,7 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
    * @param command
    */
   registerCommand(command: CommandInterface) {
+    this.commands.push(command)
     this.registerComponent(command)
     return this
   }
