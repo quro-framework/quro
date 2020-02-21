@@ -82,6 +82,7 @@ export class ContentParser implements ContentParserInterface {
     let state = ContentParserState.CommandName
     let isEscape = false
     let isString = false
+    let stringCap = ''
     let buffer = ''
 
     const tokens: ContentParseToken[] = []
@@ -96,8 +97,13 @@ export class ContentParser implements ContentParserInterface {
 
       if (!isSeparator || isEscape || isString) {
         // Tokens.
-        if (this.isStringChar(char) && !isEscape) {
+        if (
+          this.isStringChar(char) &&
+          !isEscape &&
+          (char === stringCap || !isString)
+        ) {
           isString = !isString
+          stringCap = char
         } else if (this.isEscapeChar(char) && !isEscape) {
           isEscape = true
         } else if (this.isPipelineChar(char) && !isEscape) {
