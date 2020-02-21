@@ -85,28 +85,33 @@ export abstract class Command extends Component implements CommandInterface {
     }
   >(request: CommandRequestInterface): R {
     const args: any = {}
+    const commandArgs = Object.entries(this.argDefs)
 
-    let index = 0
-    for (const [key, def] of Object.entries(this.argDefs)) {
-      const value = request.get(index) ?? def.defaultValue
+    if (commandArgs.length === 1 && commandArgs[0][1].type === ArgType.String) {
+      args[commandArgs[0][0]] = request.argsString
+    } else {
+      let index = 0
+      for (const [key, def] of commandArgs) {
+        const value = request.get(index) ?? def.defaultValue
 
-      if (typeof value === 'undefined') {
-        throw new QuroError(
-          `Argument '${def.name ?? key}' has not default value.`
-        )
-      }
-
-      if (this.typeCheck) {
-        if (def.validate(value)) {
-          args[key] = value
-        } else {
-          throw this.createTypeNotAssignableError(value, def)
+        if (typeof value === 'undefined') {
+          throw new QuroError(
+            `Argument '${def.name ?? key}' has not default value.`
+          )
         }
-      } else {
-        args[key] = value
-      }
 
-      ++index
+        if (this.typeCheck) {
+          if (def.validate(value)) {
+            args[key] = value
+          } else {
+            throw this.createTypeNotAssignableError(value, def)
+          }
+        } else {
+          args[key] = value
+        }
+
+        ++index
+      }
     }
 
     return args as R
