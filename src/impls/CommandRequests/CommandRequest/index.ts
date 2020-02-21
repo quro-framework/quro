@@ -32,11 +32,18 @@ export class CommandRequest implements CommandRequestInterface {
    *
    * @param data
    */
-  constructor(data: { args?: RequestArgs; message?: Message }) {
+  constructor(data: {
+    args?: RequestArgs
+    message?: Message
+    isPipeExit?: boolean
+    pipeRoutes?: PipeNextInterface[]
+  }) {
     this.args = data.args || []
     if (data.message) {
       this.message = data.message
     }
+    this.isPipeExit = data.isPipeExit ?? false
+    this.pipeRoutes = data.pipeRoutes ?? []
   }
 
   /**
