@@ -148,6 +148,16 @@ export class CommandRequestBuilder implements BuilderInterface<CommandRequest> {
   }
 
   /**
+   * Set args string.
+   *
+   * @param argsString
+   */
+  setArgsString(argsString: string) {
+    this.argsString = argsString
+    return this
+  }
+
+  /**
    * Build command request.
    */
   build() {
