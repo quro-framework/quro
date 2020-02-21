@@ -1,10 +1,12 @@
-import { BuilderInterface } from '../../../interfaces/Builder'
-import { RequestArgs } from '../../../types'
-import { Message } from 'discord.js'
-import { PipeNextInterface } from '../../../interfaces/PipeNext'
-import { CommandRequest } from '../../../impls'
-import { CommandInterface } from '../../../interfaces/Command'
-import { CommandPrefix } from '../../../types/CommandPrefix'
+import {
+  BuilderInterface,
+  CommandRequest,
+  RequestArgs,
+  Message,
+  PipeNextInterface,
+  CommandInterface,
+  CommandPrefix
+} from '../../..'
 
 /*
  * CommandRequestBuilder class.

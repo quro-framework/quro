@@ -1,6 +1,4 @@
-import { BuilderInterface } from '../../../interfaces/Builder'
-import { ContextInterface } from '../../../interfaces/Context'
-import { QuroBotInterface } from '../../../interfaces/QuroBot'
+import { BuilderInterface, ContextInterface, QuroBotInterface } from '../../..'
 
 /*
  * ContextBuidler class.

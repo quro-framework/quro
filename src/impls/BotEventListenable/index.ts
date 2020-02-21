@@ -1,4 +1,5 @@
 import {
+  BotEventListenableInterface,
   Channel,
   ClientUserGuildSettings,
   ClientUserSettings,
@@ -14,8 +15,7 @@ import {
   GuildEmbedData,
   TextChannel,
   Client
-} from 'discord.js'
-import { BotEventListenableInterface } from '../../interfaces/BotEventListenable'
+} from '../..'
 
 /*
  * BotEventListenable class.

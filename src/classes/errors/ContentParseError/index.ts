@@ -1,4 +1,4 @@
-import { QuroError } from '../../../abstracts/QuroError'
+import { QuroError } from '../../..'
 
 /*
  * ContentParseError class.

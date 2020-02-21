@@ -1,4 +1,4 @@
-import { ArgType } from '../ArgType'
+import { ArgType } from '..'
 
 /*
  * ArgTypeMap.

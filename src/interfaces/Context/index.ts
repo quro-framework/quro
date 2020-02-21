@@ -1,4 +1,4 @@
-import { QuroBotInterface } from '../QuroBot'
+import { QuroBotInterface } from '..'
 
 /*
  * ContextInterface.

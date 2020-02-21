@@ -1,2 +1,2 @@
-export * from './valueToString'
 export * from './argTypeToString'
+export * from './valueToString'

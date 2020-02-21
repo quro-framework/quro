@@ -1,19 +1,19 @@
-import { Component } from '../Component'
-import { CommandManagerInterface } from '../../interfaces/CommandManager'
-import { Message } from 'discord.js'
-import { ContentParser } from '../../impls'
 import {
+  RequestArgs,
+  Component,
+  CommandManagerInterface,
+  Message,
+  PipeNextInterface,
+  QuroError,
+  CommandRequestBuilder,
+  CommandRequestInterface,
+  PipeNext,
+  CommandResponseInterface,
+  PromiseOr,
   ContentParseToken,
   ContentParseTokenType,
-  RequestArgs,
-  PromiseOr
-} from '../../types'
-import { QuroError } from '../QuroError'
-import { CommandRequestBuilder } from '../../classes/builders/CommandRequestBuilder'
-import { CommandRequestInterface } from '../../interfaces/CommandRequest'
-import { CommandResponseInterface } from '../../interfaces/CommandResponse'
-import { PipeNextInterface } from '../../interfaces/PipeNext'
-import { PipeNext } from '../../impls/PipeNexts/PipeNext'
+  ContentParser
+} from '../..'
 
 /**
  * CommandData type.

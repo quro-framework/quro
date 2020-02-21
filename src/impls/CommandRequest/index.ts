@@ -1,9 +1,11 @@
-import { CommandRequestInterface } from '../../../interfaces/CommandRequest'
-import { RequestArgs } from '../../../types/RequestArgs'
-import { Message } from '../../..'
-import { PipeNextInterface } from '../../../interfaces/PipeNext'
-import { CommandInterface } from '../../../interfaces/Command'
-import { CommandPrefix } from '../../../types/CommandPrefix'
+import {
+  CommandRequestInterface,
+  RequestArgs,
+  Message,
+  PipeNextInterface,
+  CommandInterface,
+  CommandPrefix
+} from '../..'
 
 /*
  * CommandRequest class.

@@ -1,10 +1,11 @@
-import { PromiseOr } from '../../types'
-import { CommandResponseInterface } from '../CommandResponse'
-import { PipeNextInterface } from '../PipeNext'
-import { CommandRequestInterface } from '../CommandRequest'
-import { ComponentInterface } from '../Component'
+import {
+  ComponentInterface,
+  CommandRequestInterface,
+  CommandResponseInterface,
+  PipeNextInterface
+} from '..'
 import { ArgDefInterface } from '../ArgDef'
-import { ArgType } from '../../types/ArgType'
+import { ArgType, PromiseOr } from '../..'
 
 /*
  * CommandInterface.

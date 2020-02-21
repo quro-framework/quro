@@ -1,5 +1,4 @@
-import { ArgType } from '../../types/ArgType'
-import { ArgTypeMap } from '../../types/ArgTypeMap'
+import { ArgType, ArgTypeMap } from '../..'
 
 /*
  * ArgDefInterface.

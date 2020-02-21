@@ -1,4 +1,4 @@
-import { ContentParseToken } from '../../types'
+import { ContentParseToken } from '../..'
 
 /*
  * ContentParser interface.

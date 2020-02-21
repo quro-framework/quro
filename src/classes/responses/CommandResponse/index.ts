@@ -1,6 +1,8 @@
-import { CommandResponseInterface } from '../../interfaces/CommandResponse'
-import { CommandRequestInterface } from '../../interfaces/CommandRequest'
-import { ContextInterface } from '../../interfaces/Context'
+import {
+  CommandResponseInterface,
+  CommandRequestInterface,
+  ContextInterface
+} from '../../..'
 
 /*
  * CommandResponse class.

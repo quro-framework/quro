@@ -1,14 +1,16 @@
-import { QuroBotInterface } from '../../interfaces/QuroBot'
-import { Client } from 'discord.js'
-import { ComponentInterface } from '../../interfaces/Component'
-import { ContextInterface } from '../../interfaces/Context'
-import { ContextBuilder } from '../../classes/builders/ContextBuilder'
-import { QuroPluginInterface } from '../../interfaces/QuroPlugin'
-import { CommandInterface } from '../../interfaces/Command'
-import { PromiseOr } from '../../types'
-import { BotEventListenable } from '../BotEventListenable'
-import { CommandManager } from '../CommandManager'
-import { CommandPrefix } from '../../types/CommandPrefix'
+import {
+  CommandPrefix,
+  BotEventListenable,
+  QuroBotInterface,
+  ComponentInterface,
+  Client,
+  CommandManager,
+  ContextInterface,
+  CommandInterface,
+  ContextBuilder,
+  QuroPluginInterface,
+  PromiseOr
+} from '../../..'
 
 /**
  * QuroBotOptions type.

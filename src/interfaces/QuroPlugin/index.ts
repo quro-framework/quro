@@ -1,5 +1,4 @@
-import { QuroBotInterface } from '../QuroBot'
-import { PromiseOr } from '../../types'
+import { PromiseOr, QuroBotInterface } from '../..'
 
 /*
  * QuroPluginInterface.

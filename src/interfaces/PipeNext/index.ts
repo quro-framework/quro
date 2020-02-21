@@ -1,5 +1,5 @@
-import { RequestArgs } from '../../types'
-import { CommandRequestInterface } from '../CommandRequest'
+import { CommandRequestInterface } from '..'
+import { RequestArgs } from '../..'
 
 /*
  * PipeNextInterface.

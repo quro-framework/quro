@@ -1,6 +1,5 @@
-import { ArgDefInterface } from '../../../interfaces/ArgDef'
-import { ArgType } from '../../../types/ArgType'
-import { ArgTypeMap } from '../../../types/ArgTypeMap'
+import { ArgType, ArgTypeMap } from '../..'
+import { ArgDefInterface } from '../../interfaces/ArgDef'
 
 /*
  * ArgDef class.

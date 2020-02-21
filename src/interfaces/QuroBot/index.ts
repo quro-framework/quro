@@ -1,10 +1,12 @@
-import { QuroPluginInterface } from '../QuroPlugin'
-import { Client } from 'discord.js'
-import { CommandInterface } from '../Command'
-import { ContextInterface } from '../Context'
-import { PromiseOr } from '../../types'
-import { BotEventListenable } from '../../abstracts'
-import { CommandPrefix } from '../../types/CommandPrefix'
+import {
+  BotEventListenable,
+  Client,
+  ContextInterface,
+  CommandPrefix,
+  CommandInterface,
+  PromiseOr,
+  QuroPluginInterface
+} from '../..'
 
 /*
  * QuroBotInterface.

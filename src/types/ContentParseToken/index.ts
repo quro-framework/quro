@@ -1,4 +1,4 @@
-import { ContentParseTokenType } from '../ContentParseTokenType'
+import { ContentParseTokenType } from '..'
 
 /*
  * ContentParseToken type.

@@ -1,5 +1,5 @@
-import { ContextInterface } from '../Context'
-import { PromiseOr } from '../../types'
+import { ContextInterface } from '..'
+import { PromiseOr } from '../..'
 
 /*
  * ComponentInterface.

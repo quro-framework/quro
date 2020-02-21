@@ -1,4 +1,4 @@
-import { Message } from 'discord.js'
+import { Message } from '../..'
 
 /*
  * CommandManagerInterface.

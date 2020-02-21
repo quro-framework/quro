@@ -1,6 +1,4 @@
-import { PipeNextInterface } from '../../../interfaces/PipeNext'
-import { CommandRequestInterface } from '../../../interfaces/CommandRequest'
-import { RequestArgs } from '../../../types'
+import { PipeNextInterface, RequestArgs, CommandRequestInterface } from '../..'
 
 /*
  * PipeNext class.

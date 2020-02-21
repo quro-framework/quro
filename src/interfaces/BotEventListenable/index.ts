@@ -13,7 +13,7 @@ import {
   Role,
   GuildEmbedData,
   TextChannel
-} from 'discord.js'
+} from '../..'
 
 /*
  * BotEventListenableInterface.

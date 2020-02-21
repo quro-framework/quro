@@ -1,5 +1,4 @@
-import { ContextInterface } from '../../interfaces/Context'
-import { ComponentInterface } from '../../interfaces/Component'
+import { ComponentInterface, ContextInterface } from '../..'
 
 /*
  * Component class.

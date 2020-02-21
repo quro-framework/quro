@@ -1,5 +1,8 @@
-import { ContentParserInterface } from '../../../interfaces/ContentParser'
-import { ContentParseTokenType, ContentParseToken } from '../../../types'
+import {
+  ContentParserInterface,
+  ContentParseTokenType,
+  ContentParseToken
+} from '../..'
 
 /*
  * ContentParserState enum.

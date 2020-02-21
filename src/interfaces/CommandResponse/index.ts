@@ -1,6 +1,5 @@
-import { CommandRequestInterface } from '../CommandRequest'
-import { ContextInterface } from '../Context'
-import { PromiseOr } from '../../types/PromiseOr'
+import { CommandRequestInterface, ContextInterface } from '..'
+import { PromiseOr } from '../..'
 
 /*
  * CommandResponseInterface.

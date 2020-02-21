@@ -1,8 +1,10 @@
-import { RequestArgs } from '../../types/RequestArgs'
-import { Message } from '../..'
-import { PipeNextInterface } from '../PipeNext'
-import { CommandInterface } from '../Command'
-import { CommandPrefix } from '../../types/CommandPrefix'
+import {
+  Message,
+  PipeNextInterface,
+  CommandPrefix,
+  RequestArgs,
+  CommandInterface
+} from '../..'
 
 /*
  * CommandRequest interface.

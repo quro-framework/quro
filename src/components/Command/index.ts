@@ -1,13 +1,16 @@
-import { CommandInterface } from '../../interfaces/Command'
-import { PromiseOr } from '../..'
-import { CommandResponseInterface } from '../../interfaces/CommandResponse'
-import { PipeNextInterface } from '../../interfaces/PipeNext'
-import { CommandRequestInterface } from '../../interfaces/CommandRequest'
-import { Component } from '../Component'
+import {
+  Component,
+  CommandInterface,
+  ArgType,
+  CommandRequestInterface,
+  PromiseOr,
+  CommandResponseInterface,
+  PipeNextInterface,
+  valueToString,
+  argTypeToString,
+  QuroError
+} from '../..'
 import { ArgDefInterface } from '../../interfaces/ArgDef'
-import { ArgType } from '../../types/ArgType'
-import { QuroError } from '../QuroError'
-import { valueToString, argTypeToString } from '../../helpers'
 
 /*
  * Command class.
