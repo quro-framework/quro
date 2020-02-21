@@ -9,17 +9,31 @@ export class PipeNext implements PipeNextInterface {
   /**
    * Prepend args.
    */
-  private prependArgs: RequestArgs[0][] = []
+  private mPrependArgs: RequestArgs[0][] = []
 
   /**
-   * APpend args.
+   * Append args.
    */
-  private appendArgs: RequestArgs[0][] = []
+  private mAppendArgs: RequestArgs[0][] = []
 
   /**
    * Command request.
    */
   readonly request: CommandRequestInterface
+
+  /**
+   * Prepend arguments.
+   */
+  get prependArgs() {
+    return this.mPrependArgs
+  }
+
+  /**
+   * Append arguments.
+   */
+  get appendArgs() {
+    return this.mAppendArgs
+  }
 
   /**
    * PipeNext constructor.
