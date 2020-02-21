@@ -123,6 +123,10 @@ export class ContentParser implements ContentParserInterface {
         }
       }
 
+      if (isState(ContentParserState.Argument)) {
+        argumentString += char
+      }
+
       if (isEnd || (isSeparator && !isEscape && !isString && !escapeCancled)) {
         // States.
         if (isState(ContentParserState.CommandName) && buffer !== '') {
@@ -137,7 +141,6 @@ export class ContentParser implements ContentParserInterface {
           state = ContentParserState.Argument
         } else if (isState(ContentParserState.Argument)) {
           tokens.push(this.parseArgument(buffer))
-          argumentString += buffer + char
         }
 
         if (isEnd) {
