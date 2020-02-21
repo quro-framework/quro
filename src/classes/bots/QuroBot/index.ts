@@ -1,6 +1,5 @@
 import {
   CommandPrefix,
-  BotEventListenable,
   QuroBotInterface,
   ComponentInterface,
   Client,
@@ -11,6 +10,7 @@ import {
   QuroPluginInterface,
   PromiseOr
 } from '../../..'
+import { BotEventListenable } from '../../../impls'
 
 /**
  * QuroBotOptions type.
