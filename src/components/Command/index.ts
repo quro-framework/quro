@@ -134,7 +134,7 @@ export abstract class Command extends Component implements CommandInterface {
       : argTypeToString(argDef.type)
 
     return new QuroError(
-      `Type ${value} is not assignable to type '${typeString}'`
+      `Type '${value}' is not assignable to type '${typeString}'`
     )
   }
 }
