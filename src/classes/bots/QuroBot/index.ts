@@ -11,7 +11,7 @@ import {
   PromiseOr
 } from '../../..'
 import { BotEventListenable } from '../../../impls'
-import { Command } from '../../../components'
+import { NyanCommand } from '../../commands'
 
 /**
  * QuroBotOptions type.
@@ -144,7 +144,7 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
    * にゃーん
    */
   protected egg() {
-    this.registerCommand()
+    this.registerCommand(new NyanCommand())
   }
 
   /**
