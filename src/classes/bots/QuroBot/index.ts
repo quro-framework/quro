@@ -11,6 +11,7 @@ import {
   PromiseOr
 } from '../../..'
 import { BotEventListenable } from '../../../impls'
+import { Command } from '../../../components'
 
 /**
  * QuroBotOptions type.
@@ -132,8 +133,18 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
     this.commandManager = new CommandManager()
     this.registerComponent(this.commandManager)
 
+    // にゃーん
+    this.egg()
+
     // Setup bot.
     this.setup()
+  }
+
+  /**
+   * にゃーん
+   */
+  protected egg() {
+    this.registerCommand()
   }
 
   /**
