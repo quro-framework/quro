@@ -4,7 +4,7 @@ import { CommandRequest } from '../../../impls'
 /**
  * Nyan command.
  */
-class NyanCommand extends Command {
+export class NyanCommand extends Command {
   /**
    * Message patterns.
    */
