@@ -22,6 +22,27 @@ export class CommandRequest implements CommandRequestInterface {
   readonly message!: Message
 
   /**
+   * Request author.
+   */
+  get author() {
+    return this.message.author
+  }
+
+  /**
+   * Attachments.
+   */
+  get attachments() {
+    return this.message.attachments
+  }
+
+  /**
+   * Created at.
+   */
+  get createdAt() {
+    return this.message.createdAt
+  }
+
+  /**
    * Whether call as pipe exit.
    */
   readonly isPipeExit!: boolean
