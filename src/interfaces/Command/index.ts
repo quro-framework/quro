@@ -39,6 +39,11 @@ export interface CommandInterface extends ComponentInterface {
   description: string
 
   /**
+   * Hidden.
+   */
+  hidden: boolean
+
+  /**
    * Example usages.
    */
   exampleUsages: string[]
