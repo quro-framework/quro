@@ -32,6 +32,11 @@ export abstract class Command extends Component implements CommandInterface {
   description = ''
 
   /**
+   * Hidden.
+   */
+  hidden = false
+
+  /**
    * Example usages.
    */
   exampleUsages = []
