@@ -5,6 +5,7 @@ import {
   RequestArgs,
   CommandInterface
 } from '../..'
+import { User, Collection, Snowflake, MessageAttachment } from 'discord.js'
 
 /*
  * CommandRequest interface.
@@ -14,6 +15,21 @@ export interface CommandRequestInterface {
    * Message.
    */
   readonly message: Message
+
+  /**
+   * Request author.
+   */
+  readonly author: User
+
+  /**
+   * Attachments.
+   */
+  readonly attachments: Collection<Snowflake, MessageAttachment>
+
+  /**
+   * Created at.
+   */
+  readonly createdAt: Date
 
   /**
    * Whether call as pipe exit.
