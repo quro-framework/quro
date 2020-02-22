@@ -1,4 +1,5 @@
 export * from './bots'
 export * from './builders'
+export * from './commands'
 export * from './errors'
 export * from './responses'
