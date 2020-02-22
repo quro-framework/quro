@@ -24,6 +24,11 @@ export class NyanCommand extends Command {
   private kamojis = ['', '(=^・・^=)', '(ΦωΦ)', '(=^・^=)']
 
   /**
+   * Hidden.
+   */
+  hidden = true
+
+  /**
    * Call on handle.
    *
    * @param request
