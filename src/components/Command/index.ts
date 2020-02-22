@@ -54,6 +54,14 @@ export abstract class Command extends Component implements CommandInterface {
   } = {}
 
   /**
+   * Constructor.
+   */
+  constructor() {
+    super()
+    this.name = this.constructor.name
+  }
+
+  /**
    * Call on handled.
    */
   abstract onHandle(
