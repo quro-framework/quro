@@ -5,7 +5,7 @@ import { CommandInterface } from '../../interfaces'
  *
  * @param value
  */
-export function isCommand(value: any) {
+export function isCommand(value: any): value is CommandInterface {
   const typeCheck = <K extends keyof CommandInterface>(key: K, type: string) =>
     typeof value[key] === type
 
