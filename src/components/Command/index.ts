@@ -11,6 +11,8 @@ import {
   QuroError
 } from '../..'
 import { ArgDefInterface } from '../../interfaces/ArgDef'
+import { ReplyResponse } from '../../classes/responses/ReplyResponse'
+import { SendResponse } from '../../classes/responses/SendResponse'
 
 /*
  * Command class.
@@ -84,6 +86,24 @@ export abstract class Command extends Component implements CommandInterface {
     next.setPrependArgs([text])
     next.setAppendArgs([number, boolean])
     return next
+  }
+
+  /**
+   * Create reply response.
+   *
+   * @param content
+   */
+  protected reply(content: any) {
+    return new ReplyResponse(content)
+  }
+
+  /**
+   * Create send response.
+   *
+   * @param content
+   */
+  protected send(content: any) {
+    return new SendResponse(content)
   }
 
   /**
