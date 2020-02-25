@@ -39,7 +39,7 @@ export abstract class Command extends Component implements CommandInterface {
   /**
    * Example usages.
    */
-  exampleUsages = []
+  exampleUsages: string[] = []
 
   /**
    * Type check.
