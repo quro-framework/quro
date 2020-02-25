@@ -34,6 +34,16 @@ export interface QuroBotInterface extends BotEventListenable {
   nickname?: string
 
   /**
+   * Bot version.
+   */
+  version: string
+
+  /**
+   * Beta.
+   */
+  beta: boolean
+
+  /**
    * Primary bot color.
    */
   color: number

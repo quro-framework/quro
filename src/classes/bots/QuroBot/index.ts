@@ -36,6 +36,16 @@ export type QuroBotOptions = {
    * Author IDs.
    */
   authorIds: string[]
+
+  /**
+   * Bot version.
+   */
+  version: string
+
+  /**
+   * Beta.
+   */
+  beta: boolean
 }
 
 /*
@@ -48,7 +58,9 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
   static readonly defaultOptions: QuroBotOptions = {
     color: 0x2196f3,
     prefixes: ['$'],
-    authorIds: []
+    authorIds: [],
+    version: '0.0.0',
+    beta: false
   }
 
   /**
@@ -80,6 +92,16 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
    * Default nickname.
    */
   nickname?: string
+
+  /**
+   * Bot version.
+   */
+  version!: string
+
+  /**
+   * Beta.
+   */
+  beta!: boolean
 
   /**
    * Primary bot color.
@@ -154,6 +176,8 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
    */
   applyOptions(options: QuroBotOptions) {
     this.nickname = options.nickname
+    this.version = options.version
+    this.beta = options.beta
     this.color = options.color
     this.prefixes = options.prefixes
     this.authorIds = options.authorIds
