@@ -106,6 +106,6 @@ export class CommandFileLoader implements CommandFileLoaderInterface {
    * @param name
    */
   private checkFileName(name: string) {
-    return this.options.matchers.every(matcher => matcher.test(name))
+    return this.options.matchers.some(matcher => matcher.test(name))
   }
 }
