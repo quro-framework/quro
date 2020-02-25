@@ -1,5 +1,6 @@
 export * from './ArgDef'
 export * from './BotEventListenable'
+export * from './CommandFileLoader'
 export * from './CommandRequest'
 export * from './ContentParser'
 export * from './PipeNext'
