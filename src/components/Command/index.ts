@@ -24,7 +24,7 @@ export abstract class Command extends Component implements CommandInterface {
   /**
    * Aliases of command name.
    */
-  aliases = []
+  aliases: string[] = []
 
   /**
    * Command description.
