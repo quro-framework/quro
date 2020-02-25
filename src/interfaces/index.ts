@@ -1,6 +1,7 @@
 export * from './BotEventListenable'
 export * from './Builder'
 export * from './Command'
+export * from './CommandFileLoader'
 export * from './CommandManager'
 export * from './CommandRequest'
 export * from './CommandResponse'
