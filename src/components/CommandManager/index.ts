@@ -14,6 +14,8 @@ import {
   ContentParseTokenType,
   ContentParser
 } from '../..'
+import { CommandNotFoundError } from '../../classes/errors/CommandNotFoundError'
+import { CommandNameIsEmptyError } from '../../classes/errors/CommandNameIsEmptyError'
 
 /**
  * CommandData type.
@@ -79,13 +81,13 @@ export class CommandManager extends Component
       const isPipeExit = commandData === commandsData[commandsData.length - 1]
 
       if (commandData.name === '') {
-        throw new QuroError(`Unexpected command name. name is empy.`)
+        throw this.createCommandNameIsEmptyError()
       }
 
       const command = this.getCommand(commandData.name)
 
       if (typeof command === 'undefined') {
-        throw new QuroError(`Command '${commandData.name}' is not defined.`)
+        throw this.createCommandNotFoundError(commandData.name)
       }
 
       const request = new CommandRequestBuilder()
@@ -119,6 +121,24 @@ export class CommandManager extends Component
   private dispatchPipe(request: CommandRequestInterface) {
     const pipeNext = new PipeNext(request)
     return request.command.onPipe(request, pipeNext)
+  }
+
+  /**
+   * Create CommandNameIsEmptyError.
+   */
+  private createCommandNameIsEmptyError() {
+    return new CommandNameIsEmptyError(`Command name can't be empty.`)
+  }
+
+  /**
+   * Create CommandNotFoundError.
+   *
+   * @param name
+   */
+  private createCommandNotFoundError(name: string) {
+    return new CommandNotFoundError(`Command '${name}' is not found.`, {
+      requestedName: name
+    })
   }
 
   /**
