@@ -15,6 +15,8 @@ import {
   CommandNameIsEmptyError,
   CommandNotFoundError
 } from '../..'
+import { QuroError } from '../../abstracts'
+import { CommandManagerErrorListener } from '../../types/CommandManagerErrorListener'
 
 /**
  * CommandData type.
@@ -31,10 +33,26 @@ type CommandData = {
 export class CommandManager extends Component
   implements CommandManagerInterface {
   /**
+   * ErrorListeners.
+   */
+  private errorListeners: CommandManagerErrorListener[] = []
+
+  /**
    * Call on mounted.
    */
   onMounted() {
     this.bot.onMessage(this.onMessage.bind(this))
+  }
+
+  /**
+   * Add ErrorListener.
+   *
+   * @param listener
+   */
+  addErrorListener(listener: CommandManagerErrorListener) {
+    this.errorListeners.push(listener)
+
+    return this
   }
 
   /**
@@ -43,7 +61,18 @@ export class CommandManager extends Component
    * @param message
    */
   private onMessage(message: Message) {
-    this.execute(message)
+    this.execute(message).catch(error => {
+      this.reportError(error)
+    })
+  }
+
+  /**
+   * Report error for all ErrorListeners.
+   *
+   * @param error
+   */
+  private reportError(error: QuroError) {
+    this.errorListeners.forEach(listener => listener(error))
   }
 
   /**
