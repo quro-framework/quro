@@ -136,7 +136,7 @@ export abstract class Command extends Component implements CommandInterface {
     if (
       commandArgs.length === 1 &&
       commandArgs[0][1].type === ArgType.String &&
-      this.useFirstArgValue
+      this.useFirstArgValue === false
     ) {
       args[commandArgs[0][0]] = request.argsString
     } else {
