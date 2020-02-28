@@ -6,6 +6,11 @@ import { CommandRequest } from '../../../impls'
  */
 export class NyanCommand extends Command {
   /**
+   * Name.
+   */
+  name = 'nyan'
+
+  /**
    * Message patterns.
    */
   private patterns = [
