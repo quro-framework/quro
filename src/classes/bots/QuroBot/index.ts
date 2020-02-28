@@ -76,7 +76,7 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
   /**
    * Command manager.
    */
-  private readonly commandManager: CommandManager
+  protected readonly commandManager: CommandManager
 
   /**
    * Context.
