@@ -107,7 +107,7 @@ export class ContentParser implements ContentParserInterface {
           stringCap = char
         } else if (this.isEscapeChar(char) && !isEscape) {
           isEscape = true
-        } else if (this.isPipelineChar(char) && !isEscape) {
+        } else if (this.isPipelineChar(char) && !isEscape && !isString) {
           tokens.push(
             this.createToken(ContentParseTokenType.CommandCallEnd, {
               originalString: '',
