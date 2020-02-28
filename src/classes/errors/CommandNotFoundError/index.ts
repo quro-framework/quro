@@ -1,9 +1,15 @@
 import { QuroError } from '../../..'
+import { Message } from 'discord.js'
 
 /**
  * CommandNotFoundErrorData.
  */
 export type CommandNotFoundErrorData = {
+  /**
+   * Message.
+   */
+  message: Message
+
   /**
    * Requested command name.
    */
