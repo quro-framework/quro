@@ -115,7 +115,7 @@ export class CommandManager extends Component
       const command = this.getCommand(commandData.name)
 
       if (typeof command === 'undefined') {
-        throw this.createCommandNotFoundError(commandData.name)
+        throw this.createCommandNotFoundError(message, commandData.name)
       }
 
       const request = new CommandRequestBuilder()
@@ -163,8 +163,9 @@ export class CommandManager extends Component
    *
    * @param name
    */
-  private createCommandNotFoundError(name: string) {
+  private createCommandNotFoundError(message: Message, name: string) {
     return new CommandNotFoundError(`Command '${name}' is not found.`, {
+      message,
       requestedName: name
     })
   }
