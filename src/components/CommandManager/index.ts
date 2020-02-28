@@ -4,7 +4,6 @@ import {
   CommandManagerInterface,
   Message,
   PipeNextInterface,
-  QuroError,
   CommandRequestBuilder,
   CommandRequestInterface,
   PipeNext,
@@ -12,10 +11,10 @@ import {
   PromiseOr,
   ContentParseToken,
   ContentParseTokenType,
-  ContentParser
+  ContentParser,
+  CommandNameIsEmptyError,
+  CommandNotFoundError
 } from '../..'
-import { CommandNotFoundError } from '../../classes/errors/CommandNotFoundError'
-import { CommandNameIsEmptyError } from '../../classes/errors/CommandNameIsEmptyError'
 
 /**
  * CommandData type.
