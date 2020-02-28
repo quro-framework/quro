@@ -50,6 +50,11 @@ export abstract class Command extends Component implements CommandInterface {
   typeCheck = true
 
   /**
+   * Use first argument value when single string argument.
+   */
+  useFirstArgValue = false
+
+  /**
    * Arguments Definitions.
    */
   argDefs: {
@@ -128,7 +133,11 @@ export abstract class Command extends Component implements CommandInterface {
     const args: any = {}
     const commandArgs = Object.entries(this.argDefs)
 
-    if (commandArgs.length === 1 && commandArgs[0][1].type === ArgType.String) {
+    if (
+      commandArgs.length === 1 &&
+      commandArgs[0][1].type === ArgType.String &&
+      this.useFirstArgValue
+    ) {
       args[commandArgs[0][0]] = request.argsString
     } else {
       let index = 0
