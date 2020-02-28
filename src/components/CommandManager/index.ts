@@ -109,7 +109,7 @@ export class CommandManager extends Component
       const isPipeExit = commandData === commandsData[commandsData.length - 1]
 
       if (commandData.name === '') {
-        throw this.createCommandNameIsEmptyError()
+        throw this.createCommandNameIsEmptyError(message)
       }
 
       const command = this.getCommand(commandData.name)
@@ -154,8 +154,10 @@ export class CommandManager extends Component
   /**
    * Create CommandNameIsEmptyError.
    */
-  private createCommandNameIsEmptyError() {
-    return new CommandNameIsEmptyError(`Command name can't be empty.`)
+  private createCommandNameIsEmptyError(message: Message) {
+    return new CommandNameIsEmptyError(`Command name can't be empty.`, {
+      message
+    })
   }
 
   /**
