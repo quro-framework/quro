@@ -13,7 +13,7 @@ import {
 import { ArgDefInterface } from '../../interfaces/ArgDef'
 import { ReplyResponse } from '../../classes/responses/ReplyResponse'
 import { SendResponse } from '../../classes/responses/SendResponse'
-import { RichEmbed } from 'discord.js'
+import { MessageEmbed } from 'discord.js'
 
 /*
  * Command class.
@@ -113,10 +113,10 @@ export abstract class Command extends Component implements CommandInterface {
   }
 
   /**
-   * Create RichEmbed.
+   * Create MessageEmbed.
    */
   protected embed() {
-    return new RichEmbed().setColor(this.bot.color)
+    return new MessageEmbed().setColor(this.bot.color)
   }
 
   /**

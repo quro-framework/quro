@@ -112,7 +112,7 @@ export class QuroBot extends BotEventListenable implements QuroBotInterface {
    * Author.
    */
   get authors() {
-    return this.client.users.filter(
+    return this.client.users.cache.filter(
       user => !!this.authorIds.find(id => user.id === id)
     )
   }
