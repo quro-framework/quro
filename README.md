@@ -5,6 +5,11 @@
 <img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat)" alt="MIT Licence"/>
 </div>
 
+## 🔥 Version information
+
+The next version is currently under development.
+The next version will have major disruptive changes.
+
 ## 💬 Usage
 
 ### 🔧 Installation
